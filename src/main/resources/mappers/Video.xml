@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.health.model.dao.VideoDao">
+
+    <resultMap type="Video" id="VideoMap">
+        <id column="video_id" property="videoId" />
+        <result column="video_title" property="title" />
+        <result column="channel_name" property="channelName" />
+        <result column="workout_part" property="workoutPart" />
+        <result column="view_cnt" property="viewCnt" />
+        <result column="like_cnt" property="likeCnt" />
+    </resultMap>
+
+    <resultMap type="Video" id="likedVideoMap">
+        <id column="lv_index" property="index" />
+        <result column="user_id" property="userId" />
+        <result column="likedvideo_id" property="likedVideoId" />
+    </resultMap>
+
+    <select id="selectList" resultMap="VideoMap" parameterType="java.util.HashMap">
+        SELECT *
+        FROM video
+        <if test='viewPart != "모두"'>
+            WHERE workoutPart = ${viewPart}
+        </if>
+        ORDER BY ${orderBy} ${orderDir}
+    </select>
+
+    <select id="selectVideoById" resultMap="VideoMap" parameterType="String">
+        SELECT *
+        FROM video
+        WHERE video_id = #{video_id}
+    </select>
+
+    <update id="updateViewCount" parameterType="String">
+        UPDATE video
+        SET view_cnt = view_cnt + 1
+        WHERE video_id = #{video_id}
+    </update>
+
+    <update id="updateLikeCount" parameterType="String">
+        UPDATE video
+        SET like_cnt = like_cnt + 1
+        WHERE video_id = #{video_id}
+    </update>
+
+    <update id="subtractLikeCount" parameterType="String">
+        UPDATE video
+        SET like_cnt = like_cnt - 1
+        WHERE video_id = #{video_id}
+    </update>
+
+<!--  좋아요한 동영상 관련 ########################################################  -->
+    <select id="selectLikedVideoList" resultMap="likedVideoMap" parameterType="String">
+        SELECT v.video_id as video_id, v.video_title as video_title,
+               v.channel_name as channel_name, v.workout_part as workout_part,
+               v.view_cnt as view_cnt, v.like_cnt as like_cnt
+        FROM liked_video lv
+        INNER JOIN video v
+        WHERE user_id like #{id}
+    </select>
+
+    <select id="selectLikedVideo" resultMap="likedVideoMap" parameterType="java.util.HashMap">
+        SELECT v.video_id as video_id, v.video_title as video_title,
+               v.channel_name as channel_name, v.workout_part as workout_part,
+               v.view_cnt as view_cnt, v.like_cnt as like_cnt
+        FROM liked_video lv
+                 INNER JOIN video v
+        WHERE user_id like #{id} AND likedvideo_id like #{videoId}
+    </select>
+
+    <insert id="insertLikedVideo" parameterType="java.util.HashMap">
+        INSERT INTO liked_video (user_id, likedvideo_id)
+        VALUES (#{videoId}, #{id})
+    </insert>
+
+    <delete id="deleteLikedVideo" parameterType="java.util.HashMap">
+        DELETE FROM liked_video
+        WHERE user_id like #{id} AND likedvideo_id like #{videoId}
+    </delete>
+</mapper>

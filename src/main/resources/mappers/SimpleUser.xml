@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.health.model.dao.SimpleUserDao">
+
+    <resultMap type="User" id="UserMap">
+        <id column="id" property="id" />
+        <result column="password" property="password" />
+        <result column="name" property="name" />
+        <result column="nickname" property="nickname" />
+        <result column="email" property="email" />
+        <result column="age" property="age" />
+        <result column="gender" property="gender" />
+    </resultMap>
+
+    <insert id="insertUser" parameterType="User">
+            INSERT INTO simple_user VALUES
+            (#{id}, #{password}, #{name}, #{nickname}, #{email}, #{age}, #{gender})
+    </insert>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE simple_user
+        SET
+            id = #{id},
+            password = #{password},
+            name = #{name},
+            nickname = #{nickname},
+            email = #{email},
+            age = #{age},
+            gender = #{gender}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="String">
+        DELETE FROM simple_user WHERE id = #{id}
+    </delete>
+
+    <select id="selectUserById" resultMap="UserMap" parameterType="String">
+        SELECT *
+        FROM simple_user
+        WHERE id = #{id}
+    </select>
+</mapper>
