@@ -5,6 +5,9 @@ public class Follower {
     private int userId;
     private int followerId;
 
+    public Follower() {
+
+    }
     public Follower(int followIndex, int userId, int followerId) {
         this.followIndex = followIndex;
         this.userId = userId;

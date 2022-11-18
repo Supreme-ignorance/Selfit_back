@@ -9,6 +9,8 @@ public class Video {
     private int viewCnt;
     private int likeCnt;
 
+    public Video() {
+    }
 
     public Video(String videoId, String title, String channelName, String workoutPart, int viewCnt, int likeCnt) {
         this.videoId = videoId;

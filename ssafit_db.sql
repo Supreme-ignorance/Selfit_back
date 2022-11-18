@@ -2,7 +2,7 @@ drop database if exists ssafit_db;
 create database IF NOT EXISTS `ssafit_db`;
 use ssafit_db;
 
--- DROP table IF EXISTS `user`;
+DROP table IF EXISTS `user`;
 create table IF NOT EXISTS `user` (
  `id` varchar(20) not null,
  `password` varchar(20) not null,
@@ -18,9 +18,13 @@ create table IF NOT EXISTS `user` (
  info_disclose boolean default true,
  primary key(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
+insert into `user` (id, `password`, username, nickname, email, age, gender)
+values ("ssafy", "ssafy", "김싸피", "킹싸피", "ssafy@ssafy.com", 26, "man"),
+("a", "a", "에이", "에이에이", "a@a.com", 28, "woman");
 
 
--- DROP table IF EXISTS `board`;
+
+DROP table IF EXISTS `board`;
 CREATE TABLE IF NOT EXISTS `board` (
   `board_seq` int auto_increment,
   `board_name` VARCHAR(50) NOT NULL,
@@ -56,7 +60,7 @@ values ("gMaB-fG4u4g", "전신 다이어트 최고의 운동 [칼소폭 찐 핵�
 ("7TLk7pscICk", "(Sub)누워서하는 5분 복부운동!! 효과보장! (매일 2주만 해보세요!)", "홈트", "SomiFit", 0);
 
 
--- DROP table IF EXISTS `article`;
+DROP table IF EXISTS `article`;
 CREATE TABLE IF NOT EXISTS `article` (
   `board_seq` int,
   `article_id` int AUTO_INCREMENT,
@@ -69,10 +73,13 @@ CREATE TABLE IF NOT EXISTS `article` (
   Foreign key (writer) references `user`(id),
   Foreign key (board_seq) references `board`(board_seq)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
+insert into article (board_seq, writer, title, content)
+values ("1", "ssafy", "첫번째 게시글", "게시판이 생겼어요!!!!");
 
--- DROP table IF EXISTS `comment`;
+
+DROP table IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
-  `comment_id` int NOT NULL AUTO_INCREMENT,
+  `comment_id` int AUTO_INCREMENT,
   `article_id` int not null,
   `writer` varchar(20) NOT NULL,
   `content` varchar(300),
@@ -84,7 +91,11 @@ CREATE TABLE IF NOT EXISTS `comment` (
   Foreign key (article_id) references article (article_id)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
--- DROP TABLE IF EXISTS `liked_video` ;
+insert into `comment` (article_id, writer, content, `left`, `right`)
+values ("1", "ssafy", "첫번째 게시글의 첫번째 댓글이에용", 1, 2);
+
+
+DROP TABLE IF EXISTS `liked_video` ;
 CREATE TABLE IF NOT EXISTS `liked_video` (
   `lv_index` INT AUTO_INCREMENT,
   `user_id` varchar(20) NOT NULL,
@@ -93,9 +104,10 @@ CREATE TABLE IF NOT EXISTS `liked_video` (
   Foreign key (user_id) references `user`(id),
   Foreign key (video_id) references `video`(video_id)
   ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
+insert into `liked_video` (user_id, video_id)
+values ("ssafy", "gMaB-fG4u4g");
 
-
--- DROP table IF EXISTS `friend`;
+DROP table IF EXISTS `friend`;
 CREATE TABLE IF NOT EXISTS `friend` (
   `follow_index` INT AUTO_INCREMENT,
   `user_id` varchar(20) NOT NULL,
@@ -104,7 +116,9 @@ CREATE TABLE IF NOT EXISTS `friend` (
   Foreign key (user_id) references `user`(id),
   Foreign key (follower_id) references `user`(id)
   ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
-
+insert into `friend` (user_id, follower_id)
+values ("ssafy", "a"),
+("a", "ssafy");
 
 DROP table IF EXISTS `daily`;
 CREATE TABLE IF NOT EXISTS `daily` (
@@ -115,5 +129,6 @@ CREATE TABLE IF NOT EXISTS `daily` (
   PRIMARY KEY (`daily_seq`),
   Foreign key (user_id) references `user`(id)
   ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
-
-
+  insert into `daily` (user_id, ex_time)
+values ("ssafy", "50"),
+("ssafy", "30");
