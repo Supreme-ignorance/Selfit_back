@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.health.model.dao.ArticleDao">
 
-    <resultMap type="Review" id="ReviewMap">
-        <id column="review_id" property="reviewId" />
-        <result column="video_id" property="videoId" />
+    <resultMap type="Article" id="ArticleMap">
+        <id column="article_id" property="articleId" />
+        <result column="board_seq" property="boardSeq" />
         <result column="writer" property="writer" />
         <result column="title" property="title" />
         <result column="content" property="content" />
@@ -14,35 +14,35 @@
         <result column="view_cnt" property="viewCnt" />
     </resultMap>
 
-    <insert id="insertReview" parameterType="Review">
-        INSERT INTO article (video_id, writer, title, content, reg_date)
-        VALUES (#{videoId}, #{writer}, #{title}, #{content}, now())
+    <insert id="insert" parameterType="Article">
+        INSERT INTO article (board_seq, writer, title, content, reg_date)
+        VALUES (#{boardSeq}, #{writer}, #{title}, #{content}, now())
     </insert>
 
-    <select id="selectList" resultMap="ReviewMap" parameterType="java.util.HashMap">
-        SELECT review_id, video_id, writer, title, content,
+    <select id="selectList" resultMap="ArticleMap" parameterType="java.util.HashMap">
+        SELECT article_id, board_seq, writer, title, content,
                date_format(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date, view_cnt
         FROM article
-        WHERE video_id = #{videoId}
-        ORDER BY review_id ${orderDir}
+        WHERE article_id = #{articleId}
+        ORDER BY article_id ${orderDir}
     </select>
 
-    <select id="selectOne" resultMap="ReviewMap" parameterType="int">
-        SELECT review_id, video_id, writer, title, content,
+    <select id="selectOne" resultMap="ArticleMap" parameterType="int">
+        SELECT review_id, board_seq, writer, title, content,
                date_format(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date, view_cnt
         FROM article
         WHERE review_id = #{reviewId}
     </select>
 
-    <delete id="deleteReview" parameterType="int">
+    <delete id="delete" parameterType="int">
         DELETE FROM article WHERE review_id = #{reviewId}
     </delete>
 
-    <update id="updateReview" parameterType="Review">
+    <update id="update" parameterType="Article">
         UPDATE article
         SET
             review_id = #{reviewId},
-            video_id = #{videoId},
+            board_seq = #{boardSeq},
             writer = #{writer},
             title = #{title},
             content = #{content},

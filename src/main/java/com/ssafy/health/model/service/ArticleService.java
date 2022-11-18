@@ -7,17 +7,17 @@ import java.util.Map;
 
 public interface ArticleService {
     //리뷰 목록 가져오기
-    List<Article> getReviewList(Map<String, String> params);
+    List<Article> getArticleList(Map<String, String> params);
 
     //리뷰 작성
-    void writeReview(Article article);
+    void write(Article article);
 
     //리뷰 수정
-    int modifyReview(Article article);
+    int modify(Article article);
 
     //리뷰 상세 페이지
-    Article detailReview(int review_id);
+    Article detail(int review_id);
 
     //리뷰 삭제
-    int deleteReview(int review_id);
+    int delete(int review_id);
 }

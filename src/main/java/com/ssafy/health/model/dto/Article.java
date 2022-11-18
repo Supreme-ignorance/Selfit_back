@@ -1,8 +1,7 @@
 package com.ssafy.health.model.dto;
 
 public class Article {
-    private int boardId;
-    private String videoId;
+    private int boardSeq;
     private String writer;
     private String title;
     private String content;
@@ -12,9 +11,8 @@ public class Article {
     public Article() {
     }
 
-    public Article(int boardId, String videoId, String writer, String title, String content, String regDate, int viewCnt) {
-        this.boardId = boardId;
-        this.videoId = videoId;
+    public Article(int boardSeq, String writer, String title, String content, String regDate, int viewCnt) {
+        this.boardSeq = boardSeq;
         this.writer = writer;
         this.title = title;
         this.content = content;
@@ -22,20 +20,12 @@ public class Article {
         this.viewCnt = viewCnt;
     }
 
-    public int getBoardId() {
-        return boardId;
+    public int getBoardSeq() {
+        return boardSeq;
     }
 
-    public void setBoardId(int reviewId) {
-        this.boardId = reviewId;
-    }
-
-    public String getVideoId() {
-        return videoId;
-    }
-
-    public void setVideoId(String videoId) {
-        this.videoId = videoId;
+    public void setBoardSeq(int reviewId) {
+        this.boardSeq = reviewId;
     }
 
     public String getWriter() {
@@ -81,7 +71,7 @@ public class Article {
     @Override
     public String toString() {
         return "Review{" +
-                "boardId=" + boardId +
+                "boardSeq=" + boardSeq +
                 ", writer='" + writer + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +

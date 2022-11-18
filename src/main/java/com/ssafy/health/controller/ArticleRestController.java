@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/review")
-public class ReviewRestController {
+@RequestMapping("/api/article")
+public class ArticleRestController {
 
     private static final String SUCCESS = "success";
     private static final String FAIL = "fail";
@@ -24,27 +24,27 @@ public class ReviewRestController {
     @PostMapping("/write")
     public ResponseEntity<String> insert(@RequestBody Article article){
 
-        articleService.writeReview(article);
+        articleService.write(article);
 
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
-    @GetMapping("/list/{videoId}")
-    public ResponseEntity<List<Article>> list(@PathVariable String videoId,
+    @GetMapping("/list/{boardSeq}")
+    public ResponseEntity<List<Article>> list(@PathVariable String boardSeq,
                                               @RequestParam(defaultValue = "ASC") String orderDir){
         Map<String, String> params = new HashMap<>();
 
-        params.put("videoId", videoId);
+        params.put("boardSeq", boardSeq);
         params.put("orderDir", orderDir);
 
-        List<Article> list = articleService.getReviewList(params);
+        List<Article> list = articleService.getArticleList(params);
 
         return new ResponseEntity<List<Article>>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/{reviewId}")
-    public ResponseEntity<Article> detail(@PathVariable int reviewId){
+    @GetMapping("/{articleId}")
+    public ResponseEntity<Article> detail(@PathVariable int articleId){
 
-        Article article = articleService.detailReview(reviewId);
+        Article article = articleService.detail(articleId);
 
         return new ResponseEntity<Article>(article, HttpStatus.OK);
     }
@@ -52,15 +52,15 @@ public class ReviewRestController {
     @PutMapping("/modify")
     public ResponseEntity<Article> modify(Article article){
 
-        articleService.modifyReview(article);
+        articleService.modify(article);
 
         return new ResponseEntity<Article>(article, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{reviewId}")
-    public ResponseEntity<String> delete(@PathVariable int reviewId){
+    @DeleteMapping("/delete/{articleId}")
+    public ResponseEntity<String> delete(@PathVariable int articleId){
 
-        if (articleService.deleteReview(reviewId) > 0)
+        if (articleService.delete(articleId) > 0)
             return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
         else
             return new ResponseEntity<String>(FAIL, HttpStatus.OK);
