@@ -20,16 +20,16 @@ public class WebConfig implements WebMvcConfigurer {
 		registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "PUT", "DELETE");
 	}
 
-	@Autowired
-	private JwtInterceptor jwtInterceptor;
-
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(jwtInterceptor)
-				.addPathPatterns("/**")
-				.excludePathPatterns("/api/User/login",
-						"/swagger-resources/**",
-						"/swagger-ui/**",
-						"/v2/api-docs");
-	}
+//	@Autowired
+//	private JwtInterceptor jwtInterceptor;
+//
+//	@Override
+//	public void addInterceptors(InterceptorRegistry registry) {
+//		registry.addInterceptor(jwtInterceptor)
+//				.addPathPatterns("/**")
+//				.excludePathPatterns("/api/User/login",
+//						"/swagger-resources/**",
+//						"/swagger-ui/**",
+//						"/v2/api-docs");
+//	}
 }

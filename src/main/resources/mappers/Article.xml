@@ -23,7 +23,7 @@
         SELECT article_id, board_seq, writer, title, content,
                date_format(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date, view_cnt
         FROM article
-        WHERE article_id = #{articleId}
+        WHERE board_seq = #{boardSeq}
         ORDER BY article_id ${orderDir}
     </select>
 
@@ -48,6 +48,6 @@
             content = #{content},
             reg_date = #{regDate},
             view_cnt = #{viewCnt}
-        WHERE review_id = #{reviewId}
+        WHERE article_id = #{articleId}
     </update>
 </mapper>

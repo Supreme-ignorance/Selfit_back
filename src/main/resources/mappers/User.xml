@@ -7,16 +7,21 @@
     <resultMap type="User" id="UserMap">
         <id column="id" property="id" />
         <result column="password" property="password" />
-        <result column="name" property="name" />
+        <result column="user_level" property="level" />
+        <result column="user_exp" property="exp" />
+        <result column="username" property="name" />
         <result column="nickname" property="nickname" />
         <result column="email" property="email" />
         <result column="age" property="age" />
+        <result column="height" property="height" />
+        <result column="weight" property="weight" />
         <result column="gender" property="gender" />
+        <result column="info_disclose" property="InfoDisclose" />
     </resultMap>
 
     <insert id="insertUser" parameterType="User">
-            INSERT INTO user VALUES
-            (#{id}, #{password}, #{name}, #{nickname}, #{email}, #{age}, #{gender})
+            INSERT INTO user (id, password, username, nickname, email, age, gender, height, weight)
+            VALUES (#{id}, #{password}, #{name}, #{nickname}, #{email}, #{age}, #{gender}, #{height}, #{weight})
     </insert>
 
     <update id="updateUser" parameterType="User">

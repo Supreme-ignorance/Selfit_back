@@ -1,6 +1,7 @@
 package com.ssafy.health.model.dto;
 
 public class Article {
+    private int articleId;
     private int boardSeq;
     private String writer;
     private String title;
@@ -18,6 +19,14 @@ public class Article {
         this.content = content;
         this.regDate = regDate;
         this.viewCnt = viewCnt;
+    }
+
+    public int getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
     }
 
     public int getBoardSeq() {
@@ -70,12 +79,13 @@ public class Article {
 
     @Override
     public String toString() {
-        return "Review{" +
-                "boardSeq=" + boardSeq +
+        return "Article{" +
+                "articleId=" + articleId +
+                ", boardSeq=" + boardSeq +
                 ", writer='" + writer + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", reg_date=" + regDate +
+                ", regDate='" + regDate + '\'' +
                 ", viewCnt=" + viewCnt +
                 '}';
     }

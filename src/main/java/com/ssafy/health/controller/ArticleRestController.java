@@ -24,6 +24,8 @@ public class ArticleRestController {
     @PostMapping("/write")
     public ResponseEntity<String> insert(@RequestBody Article article){
 
+        System.out.println(article);
+
         articleService.write(article);
 
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
@@ -42,11 +44,13 @@ public class ArticleRestController {
     }
 
     @GetMapping("/{articleId}")
-    public ResponseEntity<Article> detail(@PathVariable int articleId){
+    public ResponseEntity<?> detail(@PathVariable int articleId){
 
         Article article = articleService.detail(articleId);
-
-        return new ResponseEntity<Article>(article, HttpStatus.OK);
+        if (article.getTitle().equals(""))
+            return new ResponseEntity<Object>(null, HttpStatus.BAD_REQUEST);
+        else
+            return new ResponseEntity<Article>(article, HttpStatus.OK);
     }
 
     @PutMapping("/modify")

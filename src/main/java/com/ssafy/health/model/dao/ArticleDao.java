@@ -13,10 +13,10 @@ public interface ArticleDao {
     List<Article> selectList(Map<String, String> params);
 
     // 게시글 조회
-    Article selectOne(int reviewId);
+    Article selectOne(int articleId);
     
     // 게시글 삭제
-    int delete(int reviewId);
+    int delete(int articleId);
 
     // 게시글 수정
     int update(Article article);
