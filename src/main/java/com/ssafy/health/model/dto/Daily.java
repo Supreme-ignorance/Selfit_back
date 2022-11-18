@@ -3,7 +3,7 @@ package com.ssafy.health.model.dto;
 import java.util.Date;
 
 public class Daily {
-    private int daily_seq;
+    private int dailySeq;
     private String userId;
     private Date exDate;
     private int exTime;
@@ -17,11 +17,11 @@ public class Daily {
     }
 
     public int getDaily_seq() {
-        return daily_seq;
+        return dailySeq;
     }
 
-    public void setDaily_seq(int daily_seq) {
-        this.daily_seq = daily_seq;
+    public void setDaily_seq(int dailySeq) {
+        this.dailySeq = dailySeq;
     }
 
     public String getUserId() {
@@ -51,7 +51,7 @@ public class Daily {
     @Override
     public String toString() {
         return "Daily{" +
-                "daily_seq=" + daily_seq +
+                "daily_seq=" + dailySeq +
                 ", userId='" + userId + '\'' +
                 ", exDate=" + exDate +
                 ", exTime=" + exTime +
