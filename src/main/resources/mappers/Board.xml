@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.health.model.dao.BoardDao">
+
+    <resultMap type="Board" id="BoardMap">
+        <id column="board_seq" property="boardSeq" />
+        <result column="board_name" property="boardName" />
+        <result column="board_detail" property="boardDetail" />
+    </resultMap>
+
+    <select id="selectList">
+        SELECT board_seq, board_name, board_detail
+        FROM board
+        ORDER BY board_seq ASC
+    </select>
+
+    <select id="selectOne" resultMap="BoardMap" parameterType="int">
+        SELECT board_seq, board_name, board_detail
+        FROM board
+        WHERE board_seq = #{boardSeq}
+    </select>
+
+</mapper>

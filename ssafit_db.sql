@@ -1,4 +1,4 @@
-
+drop database if exists ssafit_db;
 create database IF NOT EXISTS `ssafit_db`;
 use ssafit_db;
 
@@ -18,6 +18,20 @@ create table IF NOT EXISTS `user` (
  info_disclose boolean default true,
  primary key(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
+
+
+-- DROP table IF EXISTS `board`;
+CREATE TABLE IF NOT EXISTS `board` (
+  `board_seq` int,
+  `board_name` VARCHAR(50) NOT NULL,
+  `board_detail` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`board_seq`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
+insert into board(board_seq, board_name, board_detail)
+values (1, "자유게시판", "자유롭게 소통하세요~"),
+(2, "자랑게시판", "적당히 자랑하세요"),
+(3, "함께 운동해요", "함께 운동할 사람을 구하는 게시판");
+
 
 
 DROP table IF EXISTS `video`;
@@ -44,6 +58,7 @@ values ("gMaB-fG4u4g", "전신 다이어트 최고의 운동 [칼소폭 찐 핵�
 
 -- DROP table IF EXISTS `article`;
 CREATE TABLE IF NOT EXISTS `article` (
+  `board_seq` int,
   `article_id` int AUTO_INCREMENT,
   `writer` varchar(20) NOT NULL,
   `title` varchar(50) NOT NULL,
@@ -51,7 +66,8 @@ CREATE TABLE IF NOT EXISTS `article` (
   `reg_date` timestamp DEFAULT CURRENT_TIMESTAMP,
   `view_cnt` int DEFAULT '0',
   PRIMARY KEY (`article_id`),
-  Foreign key (writer) references `user`(id)
+  Foreign key (writer) references `user`(id),
+  Foreign key (board_seq) references `board`(board_seq)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
 -- DROP table IF EXISTS `comment`;
