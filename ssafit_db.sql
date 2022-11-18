@@ -22,15 +22,15 @@ create table IF NOT EXISTS `user` (
 
 -- DROP table IF EXISTS `board`;
 CREATE TABLE IF NOT EXISTS `board` (
-  `board_seq` int,
+  `board_seq` int auto_increment,
   `board_name` VARCHAR(50) NOT NULL,
   `board_detail` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`board_seq`)
-  ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
-insert into board(board_seq, board_name, board_detail)
-values (1, "자유게시판", "자유롭게 소통하세요~"),
-(2, "자랑게시판", "적당히 자랑하세요"),
-(3, "함께 운동해요", "함께 운동할 사람을 구하는 게시판");
+  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+insert into board(board_name, board_detail)
+values ("자유게시판", "자유롭게 소통하세요~"),
+("자랑게시판", "적당히 자랑하세요"),
+("함께 운동해요", "함께 운동할 사람을 구하는 게시판");
 
 
 
@@ -106,8 +106,8 @@ CREATE TABLE IF NOT EXISTS `friend` (
   ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
 
--- DROP table IF EXISTS `daily_workout`;
-CREATE TABLE IF NOT EXISTS `daily_workout` (
+DROP table IF EXISTS `daily`;
+CREATE TABLE IF NOT EXISTS `daily` (
   `daily_seq` INT AUTO_INCREMENT,
   `user_id` varchar(20) NOT NULL,
   `ex_date` timestamp DEFAULT CURRENT_TIMESTAMP,

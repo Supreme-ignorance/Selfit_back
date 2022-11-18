@@ -11,7 +11,7 @@
     </resultMap>
 
     <select id="selectList" resultMap="BoardMap">
-        SELECT board_seq, board_name, board_detail
+        SELECT *
         FROM board
         ORDER BY board_seq ASC
     </select>
