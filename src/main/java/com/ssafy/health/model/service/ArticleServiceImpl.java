@@ -14,27 +14,27 @@ public class ArticleServiceImpl implements ArticleService {
     private ArticleDao articleDao;
 
     @Override
-    public List<Article> getReviewList(Map<String, String> params) {
+    public List<Article> getArticleList(Map<String, String> params) {
         return articleDao.selectList(params);
     }
 
     @Override
-    public void writeReview(Article article) {
+    public void write(Article article) {
         articleDao.insert(article);
     }
 
     @Override
-    public int modifyReview(Article article) {
+    public int modify(Article article) {
         return articleDao.update(article);
     }
 
     @Override
-    public Article detailReview(int review_id) {
+    public Article detail(int review_id) {
         return articleDao.selectOne(review_id);
     }
 
     @Override
-    public int deleteReview(int review_id) {
+    public int delete(int review_id) {
         return articleDao.delete(review_id);
     }
 }
