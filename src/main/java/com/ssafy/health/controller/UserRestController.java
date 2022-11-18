@@ -44,7 +44,7 @@ public class UserRestController {
 			if (userService.loginUser(id, password)) {
 				result.put("access-token", jwtUtil.createToken("id", id));
 				result.put("message", SUCCESS);
-				result.put("loginUser", "");
+				result.put("loginUser", id);
 			} else {
 				result.put("message", FAIL);
 			}

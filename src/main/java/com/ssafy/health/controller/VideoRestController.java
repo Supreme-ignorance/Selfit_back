@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/Video")
+@RequestMapping("/api/video")
 public class VideoRestController {
 
     private static final String SUCCESS = "success";
@@ -21,7 +21,7 @@ public class VideoRestController {
     @Autowired
     private VideoService videoService;
 
-    @GetMapping("/List")
+    @GetMapping("/list")
     public ResponseEntity<List<Video>> videolist(@RequestParam(defaultValue = "모두") String viewPart,
 												 @RequestParam(defaultValue = "view_cnt") String orderBy,
 												 @RequestParam(defaultValue = "ASC") String orderDir) {
@@ -36,7 +36,7 @@ public class VideoRestController {
         return new ResponseEntity<List<Video>>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/One/{videoId}")
+    @GetMapping("/one/{videoId}")
     public ResponseEntity<Video> videoOne(@PathVariable String videoId) {
 
         Video video = videoService.getVideo(videoId);
@@ -45,7 +45,7 @@ public class VideoRestController {
         return new ResponseEntity<Video>(video, HttpStatus.OK);
     }
 
-    @GetMapping("/LikedList/{id}")
+    @GetMapping("/likedlist/{id}")
     public ResponseEntity<List<Video>> videolist(@PathVariable String id) {
 
         List<Video> list = videoService.getLikedVideoList(id);
@@ -53,7 +53,7 @@ public class VideoRestController {
         return new ResponseEntity<List<Video>>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/Like")
+    @GetMapping("/like")
     public ResponseEntity<String> likeVideo(@RequestParam String videoId,
                                                  @RequestParam String id) {
         Map<String, String> params = new HashMap<>();
@@ -66,7 +66,7 @@ public class VideoRestController {
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
 
-    @GetMapping("/Unlike")
+    @GetMapping("/unlike")
     public ResponseEntity<String> unlikeVideo(@RequestParam String videoId,
                                               @RequestParam String id) {
         Map<String, String> params = new HashMap<>();
