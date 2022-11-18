@@ -50,7 +50,7 @@ public class ArticleRestController {
     }
 
     @PutMapping("/modify")
-    public ResponseEntity<Article> modify(Article article){
+    public ResponseEntity<Article> modify(@RequestBody Article article){
 
         articleService.modify(article);
 
