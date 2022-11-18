@@ -1,9 +1,7 @@
 package com.ssafy.health.model.dto;
 
-import java.util.Date;
-
-public class Review {
-    private int reviewId;
+public class Article {
+    private int boardId;
     private String videoId;
     private String writer;
     private String title;
@@ -11,11 +9,11 @@ public class Review {
     private String regDate;
     private int viewCnt;
 
-    public Review() {
+    public Article() {
     }
 
-    public Review(int reviewId, String videoId, String writer, String title, String content, String regDate, int viewCnt) {
-        this.reviewId = reviewId;
+    public Article(int boardId, String videoId, String writer, String title, String content, String regDate, int viewCnt) {
+        this.boardId = boardId;
         this.videoId = videoId;
         this.writer = writer;
         this.title = title;
@@ -24,12 +22,12 @@ public class Review {
         this.viewCnt = viewCnt;
     }
 
-    public int getReviewId() {
-        return reviewId;
+    public int getBoardId() {
+        return boardId;
     }
 
-    public void setReviewId(int reviewId) {
-        this.reviewId = reviewId;
+    public void setBoardId(int reviewId) {
+        this.boardId = reviewId;
     }
 
     public String getVideoId() {
@@ -83,7 +81,7 @@ public class Review {
     @Override
     public String toString() {
         return "Review{" +
-                "reviewId=" + reviewId +
+                "boardId=" + boardId +
                 ", writer='" + writer + '\'' +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
