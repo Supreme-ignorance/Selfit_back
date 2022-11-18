@@ -24,8 +24,6 @@ public class ArticleRestController {
     @PostMapping("/write")
     public ResponseEntity<String> insert(@RequestBody Article article){
 
-        System.out.println(article);
-
         articleService.write(article);
 
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
