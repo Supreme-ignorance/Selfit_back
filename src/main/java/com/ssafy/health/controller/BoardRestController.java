@@ -28,7 +28,7 @@ public class BoardRestController {
 
     @GetMapping("/{boardSeq}")
     public ResponseEntity<Board> detail(@PathVariable int boardSeq){
-        Board board = boardService.getBoardList().get(boardSeq);
+        Board board = boardService.getBoardList().get(boardSeq-1);
         return new ResponseEntity<Board>(board, HttpStatus.OK);
     }
 }

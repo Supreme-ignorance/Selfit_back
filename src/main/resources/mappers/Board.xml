@@ -10,7 +10,7 @@
         <result column="board_detail" property="boardDetail" />
     </resultMap>
 
-    <select id="selectList">
+    <select id="selectList" resultMap="BoardMap">
         SELECT board_seq, board_name, board_detail
         FROM board
         ORDER BY board_seq ASC
