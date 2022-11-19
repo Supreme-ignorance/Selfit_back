@@ -9,6 +9,9 @@ public class Comment {
     private String content;
     private String regDate;
 
+    public Comment() {
+    }
+
     public Comment(int reviewId, String writer, String content) {
         this.reviewId = reviewId;
         this.writer = writer;

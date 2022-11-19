@@ -5,18 +5,18 @@ public class Video {
     private String videoId;
     private String title;
     private String channelName;
-    private String workoutPart;
+    private String videoType;
     private int viewCnt;
     private int likeCnt;
 
     public Video() {
     }
 
-    public Video(String videoId, String title, String channelName, String workoutPart, int viewCnt, int likeCnt) {
+    public Video(String videoId, String title, String channelName, String videoType, int viewCnt, int likeCnt) {
         this.videoId = videoId;
         this.title = title;
         this.channelName = channelName;
-        this.workoutPart = workoutPart;
+        this.videoType = videoType;
         this.viewCnt = viewCnt;
         this.likeCnt = likeCnt;
     }
@@ -45,12 +45,12 @@ public class Video {
         this.channelName = channelName;
     }
 
-    public String getWorkoutPart() {
-        return workoutPart;
+    public String getVideoType() {
+        return videoType;
     }
 
-    public void setWorkoutPart(String workoutPart) {
-        this.workoutPart = workoutPart;
+    public void setVideoType(String videoType) {
+        this.videoType = videoType;
     }
 
     public int getViewCnt() {
@@ -75,7 +75,7 @@ public class Video {
                 "videoId='" + videoId + '\'' +
                 ", title='" + title + '\'' +
                 ", channelName='" + channelName + '\'' +
-                ", workoutPart='" + workoutPart + '\'' +
+                ", videoType='" + videoType + '\'' +
                 ", viewCnt=" + viewCnt +
                 ", likeCnt=" + likeCnt +
                 '}';

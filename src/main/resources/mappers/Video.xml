@@ -8,7 +8,7 @@
         <id column="video_id" property="videoId" />
         <result column="video_title" property="title" />
         <result column="channel_name" property="channelName" />
-        <result column="workout_part" property="workoutPart" />
+        <result column="video_type" property="videoType" />
         <result column="view_cnt" property="viewCnt" />
         <result column="like_cnt" property="likeCnt" />
     </resultMap>
@@ -22,8 +22,8 @@
     <select id="selectList" resultMap="VideoMap" parameterType="java.util.HashMap">
         SELECT *
         FROM video
-        <if test='viewPart != "모두"'>
-            WHERE workoutPart = ${viewPart}
+        <if test='videoType != "홈트"'>
+            WHERE videoType = ${videoType}
         </if>
         ORDER BY ${orderBy} ${orderDir}
     </select>
@@ -55,7 +55,7 @@
 <!--  좋아요한 동영상 관련 ########################################################  -->
     <select id="selectLikedVideoList" resultMap="likedVideoMap" parameterType="String">
         SELECT v.video_id as video_id, v.video_title as video_title,
-               v.channel_name as channel_name, v.workout_part as workout_part,
+               v.channel_name as channel_name, v.video_type as video_type,
                v.view_cnt as view_cnt, v.like_cnt as like_cnt
         FROM liked_video lv
         INNER JOIN video v
@@ -64,7 +64,7 @@
 
     <select id="selectLikedVideo" resultMap="likedVideoMap" parameterType="java.util.HashMap">
         SELECT v.video_id as video_id, v.video_title as video_title,
-               v.channel_name as channel_name, v.workout_part as workout_part,
+               v.channel_name as channel_name, v.video_type as video_type,
                v.view_cnt as view_cnt, v.like_cnt as like_cnt
         FROM liked_video lv
                  INNER JOIN video v

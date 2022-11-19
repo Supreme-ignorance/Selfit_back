@@ -132,3 +132,5 @@ CREATE TABLE IF NOT EXISTS `daily` (
   insert into `daily` (user_id, ex_time)
 values ("ssafy", "50"),
 ("ssafy", "30");
+
+-- select * from daily;

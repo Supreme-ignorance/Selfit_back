@@ -22,12 +22,12 @@ public class VideoRestController {
     private VideoService videoService;
 
     @GetMapping("/list")
-    public ResponseEntity<List<Video>> videolist(@RequestParam(defaultValue = "모두") String viewPart,
+    public ResponseEntity<List<Video>> videolist(@RequestParam(defaultValue = "홈트") String videoType,
 												 @RequestParam(defaultValue = "view_cnt") String orderBy,
 												 @RequestParam(defaultValue = "ASC") String orderDir) {
         Map<String, String> params = new HashMap<>();
 
-        params.put("viewPart", viewPart);
+        params.put("videoType", videoType);
         params.put("orderBy", orderBy);
         params.put("orderDir", orderDir);
 

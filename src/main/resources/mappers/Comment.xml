@@ -4,6 +4,43 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.health.model.dao.CommentDao">
 
+    <resultMap type="Comment" id="CommentMap">
+        <id column="comment_id" property="commentId" />
+        <result column="article_id" property="articleId" />
+        <result column="writer" property="writer" />
+        <result column="content" property="content" />
+        <result column="left" property="left" />
+        <result column="right" property="right" />
+        <result column="reg_date" property="regDate" />
+    </resultMap>
 
+    <update id="update" parameterType="Comment">
+        UPDATE comment
+        SET content = #{content},
+            reg_date = now()
+        WHERE comment_id = #{commentId}
+    </update>
+
+    <insert id="insertComment" parameterType="Comment">
+        insert into `comment` (article_id, writer, content, `left`, `right`)
+        VALUES (#{articleId}, #{writer}, #{content}, #{left}, #{right})
+    </insert>
+
+    <select id="selectList" resultMap="CommentMap" parameterType="int">
+        SELECT *
+        FROM comment
+        WHERE article_id = #{articleId}
+        ORDER BY `left` ASC
+    </select>
+
+    <select id="selectOne" resultMap="CommentMap" parameterType="int">
+        SELECT *
+        FROM comment
+        WHERE comment_id = #{commentId}
+    </select>
+
+    <delete id="deleteComment" parameterType="int">
+        DELETE FROM comment WHERE comment_id = #{commentId}
+    </delete>
 
 </mapper>

@@ -15,8 +15,8 @@ public class CommentServiceImpl implements CommentService {
 
 
     @Override
-    public List<Comment> getCommentList(Map<String, String> params) {
-
+    public List<Comment> getCommentList(int articleId) {
+        commentDao.selectList(articleId);
         return null;
     }
 
@@ -28,5 +28,10 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public void deleteComment(int comment_id) {
         commentDao.deleteComment(comment_id);
+    }
+
+    @Override
+    public void modifyComment(Comment comment) {
+        commentDao.update(comment);
     }
 }

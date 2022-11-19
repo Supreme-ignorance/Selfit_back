@@ -9,11 +9,14 @@ public interface CommentDao {
     void insertComment(Comment comment);
 
     // 댓글 목록 조회
-    List<Comment> selectList(int reviewId);
+    List<Comment> selectList(int articleId);
 
     // 댓글 삭제
     int deleteComment(int commentId);
 
     // 댓글 수정
-    int updateComment(Comment comment);
+    int update(Comment comment);
+
+    //댓글 선택
+    Comment selectOne(int commentId);
 }
