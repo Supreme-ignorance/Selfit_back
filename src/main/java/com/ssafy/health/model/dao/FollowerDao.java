@@ -8,10 +8,10 @@ import java.util.List;
 public interface FollowerDao {
 
     // 팔로우 중인 목록
-    List<User> selectList(String userId);
+    List<Follower> selectList(String userId);
 
     // 팔로우
-    Follower selectUser(String userId);
+    void insertUser(Follower follower);
 
     // 언팔로우용
     void deleteUser(String userId);
