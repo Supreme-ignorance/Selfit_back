@@ -23,11 +23,10 @@ public class ArticleRestController {
 
     @PostMapping("/write")
     public ResponseEntity<String> insert(@RequestBody Article article){
-
         articleService.write(article);
-
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
+
     @GetMapping("/list/{boardSeq}")
     public ResponseEntity<List<Article>> list(@PathVariable String boardSeq,
                                               @RequestParam(defaultValue = "ASC") String orderDir){

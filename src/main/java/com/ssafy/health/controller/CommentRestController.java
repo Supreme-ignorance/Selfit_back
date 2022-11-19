@@ -9,6 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/Comment")
 public class CommentRestController {
@@ -19,9 +23,10 @@ public class CommentRestController {
 	private static final String SUCCESS = "success";
 	private static final String FAIL = "fail";
 
-	@GetMapping("/write")
-	public ResponseEntity<String> list(){
-		return new ResponseEntity<String>("안녕", HttpStatus.OK);
+	@GetMapping("/{articleId}")
+	public ResponseEntity<List<Comment>> list(@PathVariable int articleId){
+		List<Comment> list = commentService.getCommentList(articleId);
+		return new ResponseEntity<List<Comment>>(list, HttpStatus.OK);
 	}
 
 	@PostMapping("/write")
@@ -30,4 +35,16 @@ public class CommentRestController {
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
+
+	@PutMapping("/update")
+	public ResponseEntity<Comment> update(@RequestBody Comment comment){
+		commentService.modifyComment(comment);
+		return new ResponseEntity<Comment>(comment, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/delete/{commmentId}")
+	public ResponseEntity<String> delete(@PathVariable int commmentId){
+		commentService.deleteComment(commmentId);
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+	}
 }

@@ -74,8 +74,9 @@ CREATE TABLE IF NOT EXISTS `article` (
   Foreign key (board_seq) references `board`(board_seq)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 insert into article (board_seq, writer, title, content)
-values ("1", "ssafy", "첫번째 게시글", "게시판이 생겼어요!!!!");
-
+values ("1", "ssafy", "첫번째 게시글", "게시판이 생겼어요!!!!"),
+("2", "a", "두번째 게시글", "두번쨰 게시판이 생겼어요!!!!");
+select * from article;
 
 DROP table IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
@@ -92,7 +93,8 @@ CREATE TABLE IF NOT EXISTS `comment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 
 insert into `comment` (article_id, writer, content, `left`, `right`)
-values ("1", "ssafy", "첫번째 게시글의 첫번째 댓글이에용", 1, 2);
+values ("1", "ssafy", "첫번째 게시글의 첫번째 댓글이에용", 1, 2),
+("2", "a", "두번째 게시글의 첫번째 댓글이에용", 3, 4);
 
 
 DROP TABLE IF EXISTS `liked_video` ;

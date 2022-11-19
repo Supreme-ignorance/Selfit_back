@@ -16,8 +16,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> getCommentList(int articleId) {
-        commentDao.selectList(articleId);
-        return null;
+        return commentDao.selectList(articleId);
     }
 
     @Override

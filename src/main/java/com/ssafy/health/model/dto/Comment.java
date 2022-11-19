@@ -4,18 +4,24 @@ import java.util.Date;
 
 public class Comment {
     private int commentId;
-    private int reviewId;
+    private int articleId;
     private String writer;
     private String content;
+    private int left;
+    private int right;
     private String regDate;
 
     public Comment() {
     }
 
-    public Comment(int reviewId, String writer, String content) {
-        this.reviewId = reviewId;
+    public Comment(int commentId, int articleId, String writer, String content, int left, int right, String regDate) {
+        this.commentId = commentId;
+        this.articleId = articleId;
         this.writer = writer;
         this.content = content;
+        this.left = left;
+        this.right = right;
+        this.regDate = regDate;
     }
 
     public int getCommentId() {
@@ -26,12 +32,12 @@ public class Comment {
         this.commentId = commentId;
     }
 
-    public int getReviewId() {
-        return reviewId;
+    public int getArticleId() {
+        return articleId;
     }
 
-    public void setReviewId(int reviewId) {
-        this.reviewId = reviewId;
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
     }
 
     public String getWriter() {
@@ -50,6 +56,22 @@ public class Comment {
         this.content = content;
     }
 
+    public int getLeft() {
+        return left;
+    }
+
+    public void setLeft(int left) {
+        this.left = left;
+    }
+
+    public int getRight() {
+        return right;
+    }
+
+    public void setRight(int right) {
+        this.right = right;
+    }
+
     public String getRegDate() {
         return regDate;
     }
@@ -62,10 +84,12 @@ public class Comment {
     public String toString() {
         return "Comment{" +
                 "commentId=" + commentId +
-                ", reviewId=" + reviewId +
+                ", articleId=" + articleId +
                 ", writer='" + writer + '\'' +
                 ", content='" + content + '\'' +
-                ", regDate=" + regDate +
+                ", left=" + left +
+                ", right=" + right +
+                ", regDate='" + regDate + '\'' +
                 '}';
     }
 }
