@@ -27,7 +27,8 @@
     </insert>
 
     <select id="selectList" resultMap="CommentMap" parameterType="int">
-        SELECT comment_id, article_id, writer, user.nickname as writerNickname, content, `left`, `right`
+        SELECT comment_id, article_id, writer, user.nickname as writerNickname, content, `left`, `right`,
+               date_format(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date
         FROM comment LEFT JOIN user ON comment.writer = user.id
         WHERE article_id = #{articleId}
         ORDER BY `left` ASC

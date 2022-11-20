@@ -1,17 +1,13 @@
 package com.ssafy.health.controller;
 
-import com.ssafy.health.model.dto.Article;
 import com.ssafy.health.model.dto.Comment;
-import com.ssafy.health.model.service.ArticleService;
 import com.ssafy.health.model.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/api/comment")
