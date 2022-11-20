@@ -27,15 +27,17 @@
     </insert>
 
     <select id="selectList" resultMap="CommentMap" parameterType="int">
-        SELECT *
-        FROM comment
+        SELECT comment_id, article_id, writer, user.nickname as writerNickname, content, `left`, `right`
+        FROM comment LEFT JOIN user ON comment.writer = user.id
         WHERE article_id = #{articleId}
         ORDER BY `left` ASC
     </select>
 
+
     <select id="selectOne" resultMap="CommentMap" parameterType="int">
-        SELECT *
-        FROM comment
+        SELECT article_id, writer, user.nickname as writerNickname, content, `left`, `right`,
+               date_format(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date
+        FROM comment LEFT JOIN user ON comment.writer = user.id
         WHERE comment_id = #{commentId}
     </select>
 

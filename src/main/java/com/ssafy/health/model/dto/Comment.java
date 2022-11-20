@@ -6,6 +6,7 @@ public class Comment {
     private int commentId;
     private int articleId;
     private String writer;
+    private String writerNickname;
     private String content;
     private int left;
     private int right;
@@ -14,10 +15,11 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(int commentId, int articleId, String writer, String content, int left, int right, String regDate) {
+    public Comment(int commentId, int articleId, String writer, String writerNickname, String content, int left, int right, String regDate) {
         this.commentId = commentId;
         this.articleId = articleId;
         this.writer = writer;
+        this.writerNickname = writerNickname;
         this.content = content;
         this.left = left;
         this.right = right;
@@ -46,6 +48,14 @@ public class Comment {
 
     public void setWriter(String writer) {
         this.writer = writer;
+    }
+
+    public String getWriterNickname() {
+        return writerNickname;
+    }
+
+    public void setWriterNickname(String writerNickname) {
+        this.writerNickname = writerNickname;
     }
 
     public String getContent() {
@@ -86,6 +96,7 @@ public class Comment {
                 "commentId=" + commentId +
                 ", articleId=" + articleId +
                 ", writer='" + writer + '\'' +
+                ", writerNickname='" + writerNickname + '\'' +
                 ", content='" + content + '\'' +
                 ", left=" + left +
                 ", right=" + right +
