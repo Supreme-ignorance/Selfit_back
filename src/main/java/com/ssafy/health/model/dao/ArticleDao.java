@@ -20,4 +20,7 @@ public interface ArticleDao {
 
     // 게시글 수정
     int update(Article article);
+
+    // 조회수 증가
+    int updateViewCnt(int articleId);
 }

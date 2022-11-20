@@ -38,6 +38,12 @@
         WHERE article_id = #{articleId}
     </select>
 
+    <update id="updateViewCnt" parameterType="int">
+        UPDATE article
+        SET view_cnt = view_cnt+1
+        WHERE article_id = #{articleId}
+    </update>
+
     <delete id="delete" parameterType="int">
         DELETE FROM article WHERE article_id = #{articleId}
     </delete>

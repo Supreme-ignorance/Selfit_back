@@ -29,12 +29,17 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Article detail(int review_id) {
-        return articleDao.selectOne(review_id);
+    public Article detail(int articleId) {
+        return articleDao.selectOne(articleId);
     }
 
     @Override
-    public int delete(int review_id) {
-        return articleDao.delete(review_id);
+    public int delete(int articleId) {
+        return articleDao.delete(articleId);
+    }
+
+    @Override
+    public void updateViewCnt(int articleId) {
+        articleDao.updateViewCnt(articleId);
     }
 }

@@ -16,8 +16,10 @@ public interface ArticleService {
     int modify(Article article);
 
     //리뷰 상세 페이지
-    Article detail(int review_id);
+    Article detail(int articleId);
 
     //리뷰 삭제
-    int delete(int review_id);
+    int delete(int articleId);
+
+    void updateViewCnt(int articleId);
 }

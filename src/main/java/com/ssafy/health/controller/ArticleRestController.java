@@ -44,6 +44,7 @@ public class ArticleRestController {
     public ResponseEntity<?> detail(@PathVariable int articleId){
 
         Article article = articleService.detail(articleId);
+        articleService.updateViewCnt(articleId);
         if (article.getTitle().equals(""))
             return new ResponseEntity<Object>(null, HttpStatus.BAD_REQUEST);
         else
