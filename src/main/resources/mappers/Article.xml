@@ -7,7 +7,7 @@
     <resultMap type="Article" id="ArticleMap">
         <id column="article_id" property="articleId" />
         <result column="board_seq" property="boardSeq" />
-        <result column="writer" property="writer" />
+        <result column="writer" property="writerId" />
         <result column="title" property="title" />
         <result column="content" property="content" />
         <result column="reg_date" property="regDate" />
@@ -16,21 +16,25 @@
 
     <insert id="insert" parameterType="Article">
         INSERT INTO article (board_seq, writer, title, content, reg_date)
-        VALUES (#{boardSeq}, #{writer}, #{title}, #{content}, now())
+        VALUES (#{boardSeq}, #{writerId}, #{title}, #{content}, now())
     </insert>
 
     <select id="selectList" resultMap="ArticleMap" parameterType="java.util.HashMap">
-        SELECT article_id, board_seq, writer, title, content,
+        SELECT article_id, board_seq, writer, nickname as writerNickName, title, content,
                date_format(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date, view_cnt
         FROM article
+        LEFT JOIN user
+        ON article.writer = user.id
         WHERE board_seq = #{boardSeq}
         ORDER BY article_id ${orderDir}
     </select>
 
     <select id="selectOne" resultMap="ArticleMap" parameterType="int">
-        SELECT article_id, board_seq, writer, title, content,
+        SELECT article_id, board_seq, writer, nickname as writerNickName, title, content,
                date_format(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date, view_cnt
         FROM article
+                 LEFT JOIN user
+                           ON article.writer = user.id
         WHERE article_id = #{articleId}
     </select>
 
@@ -43,7 +47,7 @@
         SET
             article_id = #{articleId},
             board_seq = #{boardSeq},
-            writer = #{writer},
+            writer = #{writerId},
             title = #{title},
             content = #{content},
             reg_date = #{regDate},
