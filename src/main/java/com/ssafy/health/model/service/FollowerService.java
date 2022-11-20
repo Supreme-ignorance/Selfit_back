@@ -1,15 +1,15 @@
 package com.ssafy.health.model.service;
 
-import com.ssafy.health.model.dto.User;
+import com.ssafy.health.model.dto.Follower;
 
 import java.util.List;
 
 public interface FollowerService {
     //팔로워 목록 가져오기
-    List<User> getFollowerList(String userId);
+    List<Follower> getFollowerList(String userId);
 
     //팔로우
-    void followUser(String userId);
+    void followUser(Follower follower);
 
     //언팔로우
     void unfollowUser(String userId);

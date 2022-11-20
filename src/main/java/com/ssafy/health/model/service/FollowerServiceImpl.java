@@ -1,12 +1,11 @@
 package com.ssafy.health.model.service;
 
 import com.ssafy.health.model.dao.FollowerDao;
-import com.ssafy.health.model.dto.User;
+import com.ssafy.health.model.dto.Follower;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class FollowerServiceImpl implements FollowerService {
@@ -15,13 +14,13 @@ public class FollowerServiceImpl implements FollowerService {
     private FollowerDao followerDao;
 
     @Override
-    public List<User> getFollowerList(String userId) {
+    public List<Follower> getFollowerList(String userId) {
         return followerDao.selectList(userId);
     }
 
     @Override
-    public void followUser(String userId) {
-        followerDao.selectUser(userId);
+    public void followUser(Follower follower) {
+        followerDao.insertUser(follower);
     }
 
     @Override
