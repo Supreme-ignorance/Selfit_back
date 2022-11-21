@@ -1,5 +1,6 @@
 package com.ssafy.health.controller;
 
+import com.ssafy.health.model.dto.Login;
 import com.ssafy.health.model.dto.User;
 import com.ssafy.health.model.service.UserService;
 import com.ssafy.health.util.JwtUtil;
@@ -34,17 +35,16 @@ public class UserRestController {
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<Map<String, Object>> login(@RequestParam String id,
-										@RequestParam String password){
+	public ResponseEntity<Map<String, Object>> login(@RequestBody Login login){
 
 		Map<String, Object> result = new HashMap<>();
 		HttpStatus status = null;
 
 		try {
-			if (userService.loginUser(id, password)) {
-				result.put("access-token", jwtUtil.createToken("id", id));
+			if (userService.loginUser(login.getId(), login.getPassword())) {
+				result.put("access-token", jwtUtil.createToken("id", login.getId()));
+				result.put("loginUser", userService.getUser(login.getId()));
 				result.put("message", SUCCESS);
-				result.put("loginUser", id);
 			} else {
 				result.put("message", FAIL);
 			}

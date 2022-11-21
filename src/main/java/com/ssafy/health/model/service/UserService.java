@@ -11,6 +11,9 @@ public interface UserService {
 
 	//로그인
 	boolean loginUser(String id, String password);
+	
+	//유저 한명 가져오기
+	User getUser(String id);
 
 
 }
