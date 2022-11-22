@@ -29,7 +29,7 @@ public class ArticleRestController {
 
     @GetMapping("/list/{boardSeq}")
     public ResponseEntity<List<Article>> list(@PathVariable String boardSeq,
-                                              @RequestParam(defaultValue = "ASC") String orderDir){
+                                              @RequestParam(defaultValue = "DESC") String orderDir){
         Map<String, String> params = new HashMap<>();
 
         params.put("boardSeq", boardSeq);
