@@ -46,7 +46,7 @@ public class VideoRestController {
     }
 
     @GetMapping("/likedlist/{id}")
-    public ResponseEntity<List<Video>> videolist(@PathVariable String id) {
+    public ResponseEntity<List<Video>> likedVideoList(@PathVariable String id) {
 
         List<Video> list = videoService.getLikedVideoList(id);
 
