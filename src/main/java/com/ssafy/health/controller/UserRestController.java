@@ -48,7 +48,7 @@ public class UserRestController {
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
-	@PostMapping("/login")
+	@GetMapping("/login")
 	public ResponseEntity<Map<String, Object>> login(@RequestBody Login login){
 
 		Map<String, Object> result = new HashMap<>();

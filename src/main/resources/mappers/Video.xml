@@ -2,6 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="com.ssafy.health.model.dao.VideoDao">
 
     <resultMap type="Video" id="VideoMap">
@@ -52,14 +53,14 @@
         WHERE video_id = #{video_id}
     </update>
 
-<!--  좋아요한 동영상 관련 ########################################################  -->
+    <!--  좋아요한 동영상 관련 ########################################################  -->
     <select id="selectLikedVideoList" resultMap="VideoMap" parameterType="String">
         SELECT v.video_id as video_id, v.video_title as video_title,
                v.channel_name as channel_name, v.video_type as video_type,
                v.view_cnt as view_cnt, v.like_cnt as like_cnt
         FROM video v
-        INNER JOIN liked_video lv
-                   ON v.video_id like lv.video_id
+                 INNER JOIN liked_video lv
+                            ON v.video_id = lv.video_id
         WHERE user_id like #{id}
     </select>
 
@@ -68,14 +69,14 @@
                v.channel_name as channel_name, v.video_type as video_type,
                v.view_cnt as view_cnt, v.like_cnt as like_cnt
         FROM video v
-                 INNER JOIN liked_video lv
-                            ON v.video_id like lv.video_id
-        WHERE user_id like #{id} AND video_id like #{videoId}
+                 LEFT JOIN liked_video lv
+                            ON v.video_id = lv.video_id
+        WHERE lv.user_id like #{id} AND lv.video_id like #{videoId}
     </select>
 
     <insert id="insertLikedVideo" parameterType="java.util.HashMap">
         INSERT INTO liked_video (user_id, video_id)
-        VALUES (#{videoId}, #{id})
+        VALUES (#{id}, #{videoId})
     </insert>
 
     <delete id="deleteLikedVideo" parameterType="java.util.HashMap">
