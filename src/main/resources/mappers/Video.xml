@@ -16,7 +16,7 @@
     <resultMap type="Video" id="likedVideoMap">
         <id column="lv_index" property="index" />
         <result column="user_id" property="userId" />
-        <result column="likedvideo_id" property="likedVideoId" />
+        <result column="videoId" property="videoId" />
     </resultMap>
 
     <select id="selectList" resultMap="VideoMap" parameterType="java.util.HashMap">
@@ -54,30 +54,39 @@
 
 <!--  좋아요한 동영상 관련 ########################################################  -->
     <select id="selectLikedVideoList" resultMap="likedVideoMap" parameterType="String">
-        SELECT v.video_id as video_id, v.video_title as video_title,
-               v.channel_name as channel_name, v.video_type as video_type,
-               v.view_cnt as view_cnt, v.like_cnt as like_cnt
+        SELECT v.video_id     as video_id,
+               v.video_title  as video_title,
+               v.channel_name as channel_name,
+               v.video_type   as video_type,
+               v.view_cnt     as view_cnt,
+               v.like_cnt     as like_cnt
         FROM liked_video lv
-        INNER JOIN video v
+                 INNER JOIN video v
+                            ON v.video_id like lv.video_id
         WHERE user_id like #{id}
     </select>
 
     <select id="selectLikedVideo" resultMap="likedVideoMap" parameterType="java.util.HashMap">
-        SELECT v.video_id as video_id, v.video_title as video_title,
-               v.channel_name as channel_name, v.video_type as video_type,
-               v.view_cnt as view_cnt, v.like_cnt as like_cnt
+        SELECT v.video_id     as video_id,
+               v.video_title  as video_title,
+               v.channel_name as channel_name,
+               v.video_type   as video_type,
+               v.view_cnt     as view_cnt,
+               v.like_cnt     as like_cnt
         FROM liked_video lv
                  INNER JOIN video v
-        WHERE user_id like #{id} AND likedvideo_id like #{videoId}
+                            ON v.video_id like lv.video_id
+        WHERE user_id like #{id}
+          AND video_id like #{videoId}
     </select>
 
     <insert id="insertLikedVideo" parameterType="java.util.HashMap">
-        INSERT INTO liked_video (user_id, likedvideo_id)
+        INSERT INTO liked_video (user_id, video_id)
         VALUES (#{videoId}, #{id})
     </insert>
 
     <delete id="deleteLikedVideo" parameterType="java.util.HashMap">
         DELETE FROM liked_video
-        WHERE user_id like #{id} AND likedvideo_id like #{videoId}
+        WHERE user_id like #{id} AND video_id like #{videoId}
     </delete>
 </mapper>

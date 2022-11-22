@@ -7,8 +7,8 @@
     <resultMap type="Daily" id="DailyMap">
         <id column="daily_seq" property="dailySeq" />
         <result column="user_id" property="userId" />
-        <result column="ex_date" property="exDate" />
-        <result column="ex_time" property="exTime" />
+        <result column="ex_date" property="date" />
+        <result column="ex_time" property="count" />
     </resultMap>
 
     <insert id="insert" parameterType="Daily">
