@@ -45,12 +45,12 @@ public class UserRestController {
 		if(userService.getUser(id)==null) {
 			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+			return new ResponseEntity<Boolean>(false, HttpStatus.OK);
 		}
 	}
 	@GetMapping("/checknickname/{nickname}")
 	public ResponseEntity<Boolean> checkNickname(@PathVariable String nickname) {
-		boolean check = userService.getUserByNickname(nickname);
+		boolean check = !userService.getUserByNickname(nickname);
 		return new ResponseEntity<Boolean>(check, HttpStatus.OK);
 	}
 
@@ -89,7 +89,18 @@ public class UserRestController {
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
 			throw new RuntimeException(e);
 		}
-
 		return new ResponseEntity<Map<String, Object>>(result, status);
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> delete(@PathVariable String id){
+		int temp = userService.deleteUser(id);
+		if(temp>0) {
+			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<String>(FAIL, HttpStatus.OK);
+		}
+
+
 	}
 }
