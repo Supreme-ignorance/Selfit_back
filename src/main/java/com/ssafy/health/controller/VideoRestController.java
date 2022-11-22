@@ -53,7 +53,7 @@ public class VideoRestController {
         return new ResponseEntity<List<Video>>(list, HttpStatus.OK);
     }
 
-    @GetMapping("/like")
+    @PostMapping ("/like")
     public ResponseEntity<String> likeVideo(@RequestParam String videoId,
                                                  @RequestParam String id) {
         Map<String, String> params = new HashMap<>();
@@ -66,7 +66,7 @@ public class VideoRestController {
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
 
-    @GetMapping("/unlike")
+    @PostMapping("/unlike")
     public ResponseEntity<String> unlikeVideo(@RequestParam String videoId,
                                               @RequestParam String id) {
         Map<String, String> params = new HashMap<>();
