@@ -26,6 +26,20 @@ public class UserRestController {
 	@Autowired
 	private JwtUtil jwtUtil;
 
+	@GetMapping("/{id}")
+	public ResponseEntity<User> getUser(@PathVariable String id) {
+		User user = userService.getUser(id);
+		user.setPassword("");
+		if(!user.isInfoDisclose()) {
+			user.setEmail("");
+			user.setHeight(-1);
+			user.setWeight(-1);
+			user.setGender(null);
+			user.setName("");
+		}
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+
 	@PostMapping("/regist")
 	public ResponseEntity<String> regist(@RequestBody User user){
 

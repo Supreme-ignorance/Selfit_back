@@ -66,6 +66,18 @@ public class VideoRestController {
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
 
+    @GetMapping("/checklist/{id}")
+    public ResponseEntity<Boolean> checkLikedVideoList (@RequestParam String videoId,
+                                                        @RequestParam String id) {
+        Map<String, String> params = new HashMap<>();
+
+        params.put("videoId", videoId);
+        params.put("id", id);
+        boolean check = videoService.getLikedVideoList(params);
+        return new ResponseEntity<Boolean>(check, HttpStatus.OK);
+    }
+
+
     @GetMapping("/unlike")
     public ResponseEntity<String> unlikeVideo(@RequestParam String videoId,
                                               @RequestParam String id) {
