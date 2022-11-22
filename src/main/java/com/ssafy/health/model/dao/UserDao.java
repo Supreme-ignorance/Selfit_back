@@ -10,6 +10,8 @@ public interface UserDao {
     // 유저 조회
     User selectUserById(String id);
 
+    boolean selectUserByNickname(String nickname);
+
     // 유저 삭제
     int deleteUser(String id);
 

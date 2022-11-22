@@ -30,4 +30,14 @@ public class UserServiceImpl implements UserService {
 		return userDao.selectUserById(id);
 	}
 
+	@Override
+	public boolean getUserByNickname(String nickname) {
+		return userDao.selectUserByNickname(nickname);
+	}
+
+	@Override
+	public void updateUser(User user) {
+		userDao.updateUser(user);
+	}
+
 }

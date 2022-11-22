@@ -46,4 +46,10 @@
         FROM user
         WHERE id = #{id}
     </select>
+
+    <select id="selectUserByNickname" resultType="boolean" parameterType="String">
+        SELECT IF(COUNT(*) = 1, 1, 0)
+        FROM user
+        WHERE nickname = #{nickname}
+    </select>
 </mapper>

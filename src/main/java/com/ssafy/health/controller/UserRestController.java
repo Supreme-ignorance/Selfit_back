@@ -40,11 +40,32 @@ public class UserRestController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
+	@GetMapping("/check/{id}")
+	public ResponseEntity<Boolean> checkId(@PathVariable String id) {
+		if(userService.getUser(id)==null) {
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		}
+	}
+	@GetMapping("/check/{nickname}")
+	public ResponseEntity<Boolean> checkNickname(@PathVariable String nickname) {
+		boolean check = userService.getUserByNickname(nickname);
+		return new ResponseEntity<Boolean>(check, HttpStatus.OK);
+	}
+
+
 	@PostMapping("/regist")
 	public ResponseEntity<String> regist(@RequestBody User user){
 
 		userService.createUser(user);
 
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+	}
+
+	@PostMapping("/update")
+	public ResponseEntity<String> update(@RequestBody User user){
+		userService.updateUser(user);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 

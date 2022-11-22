@@ -15,5 +15,8 @@ public interface UserService {
 	//유저 한명 가져오기
 	User getUser(String id);
 
+	boolean getUserByNickname(String nickname);
+
+	void updateUser(User user);
 
 }
