@@ -26,7 +26,7 @@
         LEFT JOIN user
         ON article.writer = user.id
         WHERE board_seq = #{boardSeq}
-        ORDER BY article_id ${orderDir} DESC
+        ORDER BY article_id DESC
     </select>
 
     <select id="selectOne" resultMap="ArticleMap" parameterType="int">
