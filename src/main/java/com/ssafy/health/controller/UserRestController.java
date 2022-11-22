@@ -40,7 +40,7 @@ public class UserRestController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
-	@GetMapping("/check/{id}")
+	@GetMapping("/checkid/{id}")
 	public ResponseEntity<Boolean> checkId(@PathVariable String id) {
 		if(userService.getUser(id)==null) {
 			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
@@ -48,7 +48,7 @@ public class UserRestController {
 			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 		}
 	}
-	@GetMapping("/check/{nickname}")
+	@GetMapping("/checknickname/{nickname}")
 	public ResponseEntity<Boolean> checkNickname(@PathVariable String nickname) {
 		boolean check = userService.getUserByNickname(nickname);
 		return new ResponseEntity<Boolean>(check, HttpStatus.OK);
