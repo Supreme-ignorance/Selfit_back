@@ -10,9 +10,9 @@ public class Daily {
 
     public Daily() {}
 
-    public Daily(String userId, int time) {
+    public Daily(String userId, int count) {
         this.userId = userId;
-        this.count = time;
+        this.count = count;
     }
 
     public int getDailySeq() {

@@ -13,7 +13,7 @@
 
     <insert id="insert" parameterType="Daily">
         INSERT INTO daily (user_id, ex_date, ex_time)
-        VALUES (#{userId}, now(), #{exTime})
+        VALUES (#{userId}, now(), #{count})
     </insert>
 
     <select id="getRecords" resultMap="DailyMap" parameterType="String">

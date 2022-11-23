@@ -29,11 +29,13 @@
         SET
             id = #{id},
             password = #{password},
-            name = #{name},
+            username = #{name},
             nickname = #{nickname},
             email = #{email},
             age = #{age},
-            gender = #{gender}
+            gender = #{gender},
+            user_exp = #{exp},
+            user_level = #{level}
         WHERE id = #{id}
     </update>
 

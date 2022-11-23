@@ -13,6 +13,7 @@ import java.util.List;
 public class DailyServiceImpl implements DailyService {
     @Autowired
     private DailyDao dailyDao;
+    @Autowired
     private UserDao userDao;
 
     @Override
@@ -22,13 +23,17 @@ public class DailyServiceImpl implements DailyService {
 
     @Override
     public void write(Daily daily) {
+
         User user = userDao.selectUserById(daily.getUserId());
-        user.setExp(user.getExp()+daily.getCount()*3);
-        if(user.getExp()>=user.getLevel()*100) {
+
+        user.setExp(user.getExp()+daily.getCount());
+        while(user.getExp()>=user.getLevel()*100) {
             user.setExp(user.getExp()-user.getLevel()*100);
             user.setLevel(user.getLevel()+1);
         }
+
         userDao.updateUser(user);
+
         dailyDao.insert(daily);
     }
 }
