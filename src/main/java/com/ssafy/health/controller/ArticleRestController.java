@@ -29,11 +29,12 @@ public class ArticleRestController {
 
     @GetMapping("/list/{boardSeq}")
     public ResponseEntity<List<Article>> list(@PathVariable String boardSeq,
-                                              @RequestParam(defaultValue = "DESC") String orderDir){
+                                              @RequestParam(defaultValue = "DESC") String orderDir, @RequestParam(defaultValue = "article_id") String oderBy){
         Map<String, String> params = new HashMap<>();
 
         params.put("boardSeq", boardSeq);
         params.put("orderDir", orderDir);
+        params.put("oderBy", oderBy);
 
         List<Article> list = articleService.getArticleList(params);
 

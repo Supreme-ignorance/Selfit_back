@@ -12,7 +12,7 @@ public class Daily {
 
     public Daily(String userId, int time) {
         this.userId = userId;
-        this.count = time / 30;
+        this.count = time;
     }
 
     public int getDailySeq() {
