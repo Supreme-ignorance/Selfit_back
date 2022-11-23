@@ -29,6 +29,14 @@
         ORDER BY `follow_index` ASC
     </select>
 
+    <select id="selectFollowingList" resultMap="FollowerMap" parameterType="String">
+        SELECT u.id as id, u.nickname as nickname, u.user_level as user_level, u.user_exp as user_exp,
+               u.height as height, u.weight as weight, u.info_disclose as info_disclose
+        FROM friend f INNER JOIN user u
+        WHERE u.follower_id = #{followerId}
+        ORDER BY `follow_index` ASC
+    </select>
+
 
 
 </mapper>

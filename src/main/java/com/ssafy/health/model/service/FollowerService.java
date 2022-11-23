@@ -8,6 +8,9 @@ public interface FollowerService {
     //팔로워 목록 가져오기
     List<Follower> getFollowerList(String userId);
 
+    //팔로잉 목록 가져오기
+    List<Follower> getFollowingList(String followerId);
+
     //팔로우
     void followUser(Follower follower);
 

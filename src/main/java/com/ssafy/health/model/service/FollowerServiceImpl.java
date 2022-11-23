@@ -19,6 +19,12 @@ public class FollowerServiceImpl implements FollowerService {
     }
 
     @Override
+    public List<Follower> getFollowingList(String followerId) {
+        return followerDao.selectFollowingList(followerId);
+    }
+
+
+    @Override
     public void followUser(Follower follower) {
         followerDao.insertUser(follower);
     }
