@@ -33,6 +33,13 @@ public class FollowerRestController {
         return new ResponseEntity<List<Follower>>(list, HttpStatus.OK);
     }
 
+    @GetMapping("/following/{followerId}")
+    public ResponseEntity<List<Follower>> followingList(@PathVariable String followerId){
+
+        List<Follower> list = followerService.getFollowingList(followerId);
+        return new ResponseEntity<List<Follower>>(list, HttpStatus.OK);
+    }
+
     @DeleteMapping("/delete/{userId}")
     public ResponseEntity<String> delete(@PathVariable Follower follower){
 
