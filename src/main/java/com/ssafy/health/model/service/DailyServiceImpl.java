@@ -36,4 +36,9 @@ public class DailyServiceImpl implements DailyService {
 
         dailyDao.insert(daily);
     }
+
+    @Override
+    public List<Daily> getDailyListGroupType(String userId) {
+        return dailyDao.getRecordsGroupType(userId);
+    }
 }

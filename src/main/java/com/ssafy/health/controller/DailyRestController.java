@@ -35,4 +35,11 @@ public class DailyRestController {
         return new ResponseEntity<List<Daily>>(list, HttpStatus.OK);
     }
 
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<Daily>> listGroupType(@PathVariable String userId){
+
+        List<Daily> list = dailyService.getDailyListGroupType(userId);
+        return new ResponseEntity<List<Daily>>(list, HttpStatus.OK);
+    }
+
 }

@@ -12,4 +12,7 @@ public interface DailyService {
     //기록 작성
     void write(Daily daily);
 
+
+    //운동기록 목록 가져오기
+    List<Daily> getDailyListGroupType(String userId);
 }
