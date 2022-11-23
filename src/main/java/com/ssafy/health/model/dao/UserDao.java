@@ -2,6 +2,8 @@ package com.ssafy.health.model.dao;
 
 import com.ssafy.health.model.dto.User;
 
+import java.util.Map;
+
 
 public interface UserDao {
     // 유저 등록
@@ -17,4 +19,5 @@ public interface UserDao {
 
     // 유저 수정
     int updateUser(User user);
+
 }
