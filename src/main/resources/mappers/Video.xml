@@ -23,7 +23,7 @@
     <select id="selectList" resultMap="VideoMap" parameterType="java.util.HashMap">
         SELECT *
         FROM video
-        <if test='videoType != "홈트"'>
+        <if test='videoType != "모두"'>
             WHERE videoType = ${videoType}
         </if>
         ORDER BY ${orderBy} ${orderDir}
