@@ -1,6 +1,7 @@
 package com.ssafy.health.model.service;
 
 import com.ssafy.health.model.dao.ArticleDao;
+import com.ssafy.health.model.dao.CommentDao;
 import com.ssafy.health.model.dto.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,9 @@ import java.util.Map;
 public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private ArticleDao articleDao;
+
+    @Autowired
+    private CommentDao commentDao;
 
     @Override
     public List<Article> getArticleList(Map<String, String> params) {
@@ -35,6 +39,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public int delete(int articleId) {
+        commentDao.deleteCommentInArticle(articleId);
         return articleDao.delete(articleId);
     }
 

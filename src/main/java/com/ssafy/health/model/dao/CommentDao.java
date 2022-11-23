@@ -19,4 +19,6 @@ public interface CommentDao {
 
     //댓글 선택
     Comment selectOne(int commentId);
+
+    int deleteCommentInArticle(int articleId);
 }

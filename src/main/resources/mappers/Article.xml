@@ -45,7 +45,8 @@
     </update>
 
     <delete id="delete" parameterType="int">
-        DELETE FROM article WHERE article_id = #{articleId}
+        DELETE FROM article
+        WHERE article_id = #{articleId}
     </delete>
 
     <update id="update" parameterType="Article">

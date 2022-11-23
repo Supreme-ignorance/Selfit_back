@@ -63,6 +63,8 @@ public class ArticleRestController {
     @DeleteMapping("/delete/{articleId}")
     public ResponseEntity<String> delete(@PathVariable int articleId){
 
+        System.out.println(articleId);
+
         if (articleService.delete(articleId) > 0)
             return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
         else
