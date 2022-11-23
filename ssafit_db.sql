@@ -128,11 +128,9 @@ CREATE TABLE IF NOT EXISTS `daily` (
   `user_id` varchar(20) NOT NULL,
   `ex_date` timestamp DEFAULT CURRENT_TIMESTAMP,
   `ex_time` int not null,
+  `ex_type` varchar(20) NOT NULL,
   PRIMARY KEY (`daily_seq`),
   Foreign key (user_id) references `user`(id)
   ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
-  insert into `daily` (user_id, ex_time)
-values ("ssafy", "50"),
-("ssafy", "30");
 
 -- select * from daily;

@@ -9,6 +9,7 @@
         <result column="user_id" property="userId" />
         <result column="ex_date" property="date" />
         <result column="ex_time" property="count" />
+        <result column="ex_type" property="type" />
     </resultMap>
 
     <insert id="insert" parameterType="Daily">
@@ -17,9 +18,10 @@
     </insert>
 
     <select id="getRecords" resultMap="DailyMap" parameterType="String">
-        SELECT daily_seq, user_id, date_format(ex_date, '%Y-%m-%d') as ex_date, ex_time
+        SELECT daily_seq, user_id, date_format(ex_date, '%Y-%m-%d') as ex_date, SUM(ex_time) as ex_time
         FROM daily
         WHERE user_id = #{userId}
+        GROUP BY date_format(ex_date, '%Y-%m-%d')
         ORDER BY daily_seq ASC
     </select>
 

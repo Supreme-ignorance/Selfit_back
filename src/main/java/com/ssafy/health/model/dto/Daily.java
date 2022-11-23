@@ -6,13 +6,16 @@ public class Daily {
     private int dailySeq;
     private String userId;
     private String date;
+
+    private Type type;
     private int count;
 
     public Daily() {}
 
-    public Daily(String userId, int count) {
+    public Daily(String userId, int count, Type type) {
         this.userId = userId;
         this.count = count;
+        this.type = type;
     }
 
     public int getDailySeq() {
@@ -47,13 +50,24 @@ public class Daily {
         this.userId = userId;
     }
 
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         return "Daily{" +
                 "dailySeq=" + dailySeq +
                 ", userId='" + userId + '\'' +
                 ", date='" + date + '\'' +
+                ", type=" + type +
                 ", count=" + count +
                 '}';
     }
 }
+
+enum Type {홈트, 피트니스, 요가, 필라테스}

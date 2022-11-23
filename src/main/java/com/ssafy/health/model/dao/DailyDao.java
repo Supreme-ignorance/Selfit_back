@@ -11,5 +11,4 @@ public interface DailyDao {
 
     // 운동기록 목록
     List<Daily> getRecords(String userId);
-
 }
