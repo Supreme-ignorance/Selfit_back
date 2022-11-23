@@ -24,7 +24,7 @@
         SELECT *
         FROM video
         <if test='videoType != "모두"'>
-            WHERE videoType = #{videoType}
+            WHERE video_type = #{videoType}
         </if>
         ORDER BY ${orderBy} ${orderDir}
     </select>
