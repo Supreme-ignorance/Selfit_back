@@ -70,7 +70,7 @@ public class VideoRestController {
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
 
-    @GetMapping("/checklist/{id}")
+    @GetMapping("/checklist")
     public ResponseEntity<Boolean> checkLikedVideoList (@RequestParam String videoId,
                                                         @RequestParam String id) {
         Map<String, String> params = new HashMap<>();
@@ -82,7 +82,7 @@ public class VideoRestController {
     }
 
 
-    @PostMapping("/unlike")
+    @DeleteMapping ("/unlike")
     public ResponseEntity<String> unlikeVideo(@RequestParam String videoId,
                                               @RequestParam String id) {
         Map<String, String> params = new HashMap<>();
