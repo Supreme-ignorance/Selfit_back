@@ -28,6 +28,7 @@ public class DailyServiceImpl implements DailyService {
             user.setExp(user.getExp()-user.getLevel()*100);
             user.setLevel(user.getLevel()+1);
         }
+        userDao.updateUser(user);
         dailyDao.insert(daily);
     }
 }
