@@ -17,9 +17,19 @@ public class User {
     public User() {
     }
 
-    public User(String id, String password, String name, int height, int weight, String nickname, String email, int age, Gender gender) {
+    public User(String id, String password, int height, int weight, boolean infoDisclose) {
         this.id = id;
         this.password = password;
+        this.height = height;
+        this.weight = weight;
+        this.infoDisclose = infoDisclose;
+    }
+
+    public User(String id, String password, int level, int exp, String name, int height, int weight, String nickname, String email, int age, Gender gender, boolean infoDisclose) {
+        this.id = id;
+        this.password = password;
+        this.level = level;
+        this.exp = exp;
         this.name = name;
         this.height = height;
         this.weight = weight;
@@ -27,6 +37,7 @@ public class User {
         this.email = email;
         this.age = age;
         this.gender = gender;
+        this.infoDisclose = infoDisclose;
     }
 
     public String getId() {

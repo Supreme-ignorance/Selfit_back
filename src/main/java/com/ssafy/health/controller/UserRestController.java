@@ -58,7 +58,9 @@ public class UserRestController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<String> update(@RequestBody User user){
+	public ResponseEntity<String> update(@RequestBody User user, @RequestParam boolean isdis){
+
+		user.setInfoDisclose(isdis);
 		userService.updateUser(user);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
