@@ -29,7 +29,7 @@
         SET password = #{password},
             height = #{height},
             weight = #{weight},
-            info_disclose = #{infoDisclose}
+            info_disclose = ${infoDisclose}
         WHERE id = #{id}
     </update>
 
