@@ -26,16 +26,10 @@
 
     <update id="updateUser" parameterType="User">
         UPDATE user
-        SET
-            id = #{id},
-            password = #{password},
-            username = #{name},
-            nickname = #{nickname},
-            email = #{email},
-            age = #{age},
-            gender = #{gender},
-            user_exp = #{exp},
-            user_level = #{level}
+        SET password = #{password},
+            height = #{height},
+            weight = #{weight},
+            info_disclose = #{InfoDisclose}
         WHERE id = #{id}
     </update>
 

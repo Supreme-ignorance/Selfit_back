@@ -42,13 +42,13 @@ public class FollowerRestController {
         return new ResponseEntity<List<Follower>>(list, HttpStatus.OK);
     }
     // 언팔
-    @DeleteMapping("/delete/")
+    @DeleteMapping("/delete")
     public ResponseEntity<String> delete(@RequestBody Follower follower){
         followerService.unfollowUser(follower);
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
 
-    @GetMapping("/check")
+    @PostMapping("/check")
     public ResponseEntity<Boolean> checkFollowing(@RequestBody Follower follower) {
         boolean check = followerService.checkStatus(follower);
         return new ResponseEntity<Boolean>(check, HttpStatus.OK);

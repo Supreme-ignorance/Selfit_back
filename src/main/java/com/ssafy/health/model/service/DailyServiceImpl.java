@@ -27,6 +27,7 @@ public class DailyServiceImpl implements DailyService {
         User user = userDao.selectUserById(daily.getUserId());
 
         user.setExp(user.getExp()+daily.getCount());
+
         while(user.getExp()>=user.getLevel()*100) {
             user.setExp(user.getExp()-user.getLevel()*100);
             user.setLevel(user.getLevel()+1);

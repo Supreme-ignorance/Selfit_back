@@ -63,7 +63,7 @@ public class UserRestController {
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
-	@PostMapping("/update")
+	@PutMapping("/update")
 	public ResponseEntity<String> update(@RequestBody User user){
 		userService.updateUser(user);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);

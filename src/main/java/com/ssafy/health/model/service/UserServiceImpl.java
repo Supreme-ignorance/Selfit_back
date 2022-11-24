@@ -5,6 +5,8 @@ import com.ssafy.health.model.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.jws.soap.SOAPBinding;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -37,7 +39,16 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void updateUser(User user) {
-		userDao.updateUser(user);
+		User temp = userDao.selectUserById(user.getId());
+
+		temp.setHeight(user.getHeight());
+		temp.setWeight(user.getWeight());
+		temp.setPassword(user.getPassword());
+		temp.setInfoDisclose(user.isInfoDisclose());
+
+		System.out.println(temp);
+
+		userDao.updateUser(temp);
 	}
 
 	@Override
