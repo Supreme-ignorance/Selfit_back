@@ -4,14 +4,24 @@ public class Follower {
     private int followIndex;
     private int userId;
     private int followerId;
+    private String followerNickname;
 
     public Follower() {
-
     }
-    public Follower(int followIndex, int userId, int followerId) {
+
+    public Follower(int followIndex, int userId, int followerId, String followerNickname) {
         this.followIndex = followIndex;
         this.userId = userId;
         this.followerId = followerId;
+        this.followerNickname = followerNickname;
+    }
+
+    public String getFollowerNickname() {
+        return followerNickname;
+    }
+
+    public void setFollowerNickname(String followerNickname) {
+        this.followerNickname = followerNickname;
     }
 
     public int getFollowIndex() {

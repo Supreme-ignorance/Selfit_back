@@ -8,6 +8,7 @@
         <id column="follow_index" property="followIndex" />
         <result column="user_id" property="userId" />
         <result column="follower_id" property="followerId" />
+        <result column="nickname" property="followerNickname"/>
     </resultMap>
 
     <insert id="insertUser" parameterType="Follower">
@@ -22,16 +23,14 @@
 
 
     <select id="selectList" resultMap="FollowerMap" parameterType="String">
-        SELECT u.id as id, u.nickname as nickname, u.user_level as user_level, u.user_exp as user_exp,
-               u.height as height, u.weight as weight, u.info_disclose as info_disclose
+        SELECT u.id as id, u.nickname as nickname
         FROM friend f INNER JOIN user u
         WHERE u.id = #{userId}
         ORDER BY `follow_index` ASC
     </select>
 
     <select id="selectFollowingList" resultMap="FollowerMap" parameterType="String">
-        SELECT u.id as id, u.nickname as nickname, u.user_level as user_level, u.user_exp as user_exp,
-               u.height as height, u.weight as weight, u.info_disclose as info_disclose
+        SELECT u.id as id, u.nickname as nickname
         FROM friend f INNER JOIN user u
         WHERE u.follower_id = #{followerId}
         ORDER BY `follow_index` ASC
