@@ -21,16 +21,17 @@ create table IF NOT EXISTS `user` (
 insert into `user` (id, `password`, username, nickname, email, age, gender, height, weight, info_disclose)
 values ("ssafy", "ssafy", "김싸피", "킹싸피", "ssafy@ssafy.com", 26, "man", 170, 67, 1),
        ("a", "a", "에이", "에이에이", "a@a.com", 28, "woman", 165, 50, 1),
-       ("hero", "duddnd", "김영웅", "군기반장", "agds@a.com", 27, "man", 185, 50, 1),
+       ("hero", "duddnd", "김영웅", "임영웅", "agds@a.com", 27, "man", 185, 50, 1),
        ("magic", "wing", "해리포터", "해리포터", "thu@fds.com", 31,"man", 175, 60, 1),
        ("sesol", "fsd", "오세솔", "5살솔", "thu5@fds.com", 29,"man", 175, 60, 1),
        ("JPA", "fsdfd", "이신광", "JPA영업맨", "thgfdu5@fds.com", 29,"man", 190, 80, 1),
-       ("wy123", "1234", "장원영", "장원영", "wy@wy.com", 19, "woman", 175, 60, 1),
-       ("yujin123", "1234", "안유진", "안유진", "yj@yj.com", 20, "woman", 175, 60, 1),
-       ("mimi", "1234", "김미연", "미미", "mimi@omg.com", 28, "woman", 175, 60, 1),
+       ("wy123", "1234", "장원영", "장원영", "wy@wy.com", 19, "woman", 175, 42, 1),
+       ("yujin123", "1234", "안유진", "안유진", "yj@yj.com", 20, "woman", 175, 47, 1),
+       ("mimi", "1234", "김미연", "미미", "mimi@omg.com", 28, "woman", 163, 45, 1),
        ("b", "b", "비", "비", "b@b.com", 40, "man", 175, 60, 1),
        ("ong", "1234", "옹성우", "옹", "ong@ong.com", 28, "man", 175, 60, 1),
-       ("hani", "1234", "하니", "하니", "hani@aa.com", 17, "woman", 175, 60, 1);
+       ("hani", "1234", "하니", "하니", "hani@aa.com", 17, "woman", 168, 43, 1),
+       ("thdud", "1234", "소영", "스윗펌킨", "soy@soy.com", 26, "woman", 163, 50, 1);
 
 
 
@@ -127,10 +128,12 @@ CREATE TABLE IF NOT EXISTS `article` (
 insert into article (board_seq, writer, title, content)
 values ("1", "ssafy", "첫번째 게시글", "게시판이 생겼어요!!!!"),
        ("1", "magic", "아니 마법만 쓰니까 요즘 살찌네요", "진짜 오늘부터 다이어트 간다"),
-       ("2", "a", "두번째 게시글", "두번쨰 게시판이 생겼어요!!!!"),
+       ("2", "a", "두번째 게시글", "두번째 게시판이 생겼어요!!!!"),
        ("1", "hero", "뭔지 궁굼해요?", "비밀비밀비밀비밀"),
        ("2", "hero", "내 유일한 자랑 알랴쥼", "비밀비밀비밀비밀"),
-       ("3", "JPA", "JPA강의 같이 들으실 분?", "JPA가 진짜 좋다니깐요?");
+       ("3", "JPA", "JPA강의 같이 들으실 분?", "JPA가 진짜 좋다니깐요?"),
+       ("2", "wy123", "나 요즘 좀 빠진듯", "딸기도 두손으로 먹어야 돼"),
+       ("1", "ong", "나 요즘 살찐것 같아", "운동 가즈아");
 select * from article;
 
 DROP table IF EXISTS `comment`;
