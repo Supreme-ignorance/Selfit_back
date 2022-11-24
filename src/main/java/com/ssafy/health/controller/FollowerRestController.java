@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/follower")
@@ -48,7 +50,7 @@ public class FollowerRestController {
 
     @GetMapping("/check")
     public ResponseEntity<Boolean> checkFollowing(@RequestBody Follower follower) {
-        boolean check = !followerService.checkStatus(follower);
+        boolean check = followerService.checkStatus(follower);
         return new ResponseEntity<Boolean>(check, HttpStatus.OK);
     }
 

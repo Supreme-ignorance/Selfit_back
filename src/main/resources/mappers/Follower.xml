@@ -36,8 +36,8 @@
         ORDER BY `follow_index` ASC
     </select>
 
-    <select id="checkFollowById" resultMap="boolean" parameterType="Follower">
-        SELECT IF(COUNT(*) = 1, 1, 0)
+    <select id="selectFollowerById" resultMap="FollowerMap" parameterType="Follower">
+        SELECT follow_index, user_id, follower_id
         FROM friend
         WHERE user_id = #{userId} and follower_id = #{followerId}
     </select>

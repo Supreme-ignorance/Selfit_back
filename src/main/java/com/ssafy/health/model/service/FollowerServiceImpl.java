@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class FollowerServiceImpl implements FollowerService {
@@ -35,7 +36,9 @@ public class FollowerServiceImpl implements FollowerService {
 
     @Override
     public boolean checkStatus(Follower follower) {
-        System.out.println(follower.getUserId());
-        return followerDao.checkFollowById(follower);
+        if(followerDao.selectFollowerById(follower)==null)
+            return true;
+        else
+            return false;
     }
 }

@@ -19,7 +19,7 @@ public interface FollowerDao {
     // 언팔로우용
     void deleteUser(Follower follower);
 
-    boolean checkFollowById(Follower follower);
+    Follower selectFollowerById(Follower follower);
 
 
 }
