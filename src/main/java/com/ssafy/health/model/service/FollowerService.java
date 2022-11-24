@@ -16,4 +16,6 @@ public interface FollowerService {
 
     //언팔로우
     void unfollowUser(Follower follower);
+
+    boolean checkStatus(Follower follower);
 }

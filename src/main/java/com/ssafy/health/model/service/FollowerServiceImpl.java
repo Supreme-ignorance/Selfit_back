@@ -32,4 +32,10 @@ public class FollowerServiceImpl implements FollowerService {
     public void unfollowUser(Follower follower) {
         followerDao.deleteUser(follower);
     }
+
+    @Override
+    public boolean checkStatus(Follower follower) {
+        System.out.println(follower.getUserId());
+        return followerDao.checkFollowById(follower);
+    }
 }

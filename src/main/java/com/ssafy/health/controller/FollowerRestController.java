@@ -46,4 +46,10 @@ public class FollowerRestController {
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
 
+    @GetMapping("/check")
+    public ResponseEntity<Boolean> checkFollowing(@RequestBody Follower follower) {
+        boolean check = !followerService.checkStatus(follower);
+        return new ResponseEntity<Boolean>(check, HttpStatus.OK);
+    }
+
 }
