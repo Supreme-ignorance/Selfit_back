@@ -18,28 +18,28 @@ public class FollowerRestController {
 
     @Autowired
     private FollowerService followerService;
-
+    // 내가 팔로우 함
     @PostMapping("/follow")
     public ResponseEntity<String> insert(@RequestBody Follower follower){
         followerService.followUser(follower);
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
 
-
+    // 내가 팔로우 하고 있는 사람
     @GetMapping("/{userId}")
     public ResponseEntity<List<Follower>> list(@PathVariable String userId){
 
         List<Follower> list = followerService.getFollowerList(userId);
         return new ResponseEntity<List<Follower>>(list, HttpStatus.OK);
     }
-
+    // 나를 팔로우 하고 있는 사람
     @GetMapping("/following/{followerId}")
     public ResponseEntity<List<Follower>> followingList(@PathVariable String followerId){
 
         List<Follower> list = followerService.getFollowingList(followerId);
         return new ResponseEntity<List<Follower>>(list, HttpStatus.OK);
     }
-
+    // 언팔
     @DeleteMapping("/delete/")
     public ResponseEntity<String> delete(@RequestBody Follower follower){
         followerService.unfollowUser(follower);

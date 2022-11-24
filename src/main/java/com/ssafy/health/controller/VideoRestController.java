@@ -25,9 +25,6 @@ public class VideoRestController {
     public ResponseEntity<List<Video>> videolist(@RequestParam(defaultValue = "모두") String videoType,
 												 @RequestParam(defaultValue = "view_cnt") String orderBy,
 												 @RequestParam(defaultValue = "DESC") String orderDir) {
-        System.out.println(videoType);
-        System.out.println(orderBy);
-        System.out.println(orderDir);
 
         Map<String, String> params = new HashMap<>();
 

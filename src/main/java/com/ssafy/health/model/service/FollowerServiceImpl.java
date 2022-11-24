@@ -23,7 +23,6 @@ public class FollowerServiceImpl implements FollowerService {
         return followerDao.selectFollowingList(followerId);
     }
 
-
     @Override
     public void followUser(Follower follower) {
         followerDao.insertUser(follower);
