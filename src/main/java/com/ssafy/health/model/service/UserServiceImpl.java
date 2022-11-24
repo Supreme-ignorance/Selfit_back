@@ -44,8 +44,7 @@ public class UserServiceImpl implements UserService {
 		temp.setHeight(user.getHeight());
 		temp.setWeight(user.getWeight());
 		temp.setPassword(user.getPassword());
-		System.out.println(user.getIsInfoDisclose());
-		temp.setIssInfoDisclose(user.getIsInfoDisclose());
+		temp.setInfoDisclose(user.getInfoDisclose());
 
 		userDao.updateUser(temp);
 	}

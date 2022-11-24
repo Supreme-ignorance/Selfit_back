@@ -12,17 +12,9 @@ public class User {
     private String email;
     private int age;
     private Gender gender;
-    private boolean infoDisclose;
+    private Boolean infoDisclose;
 
     public User() {
-    }
-
-    public User(String id, String password, int height, int weight, boolean infoDisclose) {
-        this.id = id;
-        this.password = password;
-        this.height = height;
-        this.weight = weight;
-        this.infoDisclose = infoDisclose;
     }
 
     public User(String id, String password, int level, int exp, String name, int height, int weight, String nickname, String email, int age, Gender gender, boolean infoDisclose) {
@@ -68,11 +60,11 @@ public class User {
         this.weight = weight;
     }
 
-    public boolean getIsInfoDisclose() {
+    public Boolean getInfoDisclose() {
         return infoDisclose;
     }
 
-    public void setIssInfoDisclose(boolean infoDisclose) {
+    public void setInfoDisclose(Boolean infoDisclose) {
         this.infoDisclose = infoDisclose;
     }
 
