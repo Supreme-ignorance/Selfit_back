@@ -12,7 +12,7 @@ public class User {
     private String email;
     private int age;
     private Gender gender;
-    private boolean InfoDisclose;
+    private boolean infoDisclose;
 
     public User() {
     }
@@ -58,11 +58,11 @@ public class User {
     }
 
     public boolean isInfoDisclose() {
-        return InfoDisclose;
+        return infoDisclose;
     }
 
     public void setInfoDisclose(boolean infoDisclose) {
-        InfoDisclose = infoDisclose;
+        infoDisclose = infoDisclose;
     }
 
     public void setPassword(String password) {
@@ -139,7 +139,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", age=" + age +
                 ", gender=" + gender +
-                ", InfoDisclose=" + InfoDisclose +
+                ", InfoDisclose=" + infoDisclose +
                 '}';
     }
 }

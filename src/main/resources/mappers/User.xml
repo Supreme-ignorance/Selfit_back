@@ -16,7 +16,7 @@
         <result column="height" property="height" />
         <result column="weight" property="weight" />
         <result column="gender" property="gender" />
-        <result column="info_disclose" property="InfoDisclose" />
+        <result column="info_disclose" property="infoDisclose" />
     </resultMap>
 
     <insert id="insertUser" parameterType="User">
@@ -29,7 +29,7 @@
         SET password = #{password},
             height = #{height},
             weight = #{weight},
-            info_disclose = #{InfoDisclose}
+            info_disclose = #{infoDisclose}
         WHERE id = #{id}
     </update>
 
