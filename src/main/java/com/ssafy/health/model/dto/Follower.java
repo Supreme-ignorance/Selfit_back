@@ -2,14 +2,14 @@ package com.ssafy.health.model.dto;
 
 public class Follower {
     private int followIndex;
-    private int userId;
-    private int followerId;
+    private String userId;
+    private String followerId;
     private String followerNickname;
 
     public Follower() {
     }
 
-    public Follower(int followIndex, int userId, int followerId, String followerNickname) {
+    public Follower(int followIndex, String userId, String followerId, String followerNickname) {
         this.followIndex = followIndex;
         this.userId = userId;
         this.followerId = followerId;
@@ -32,19 +32,19 @@ public class Follower {
         this.followIndex = followIndex;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public int getFollowerId() {
+    public String getFollowerId() {
         return followerId;
     }
 
-    public void setFollowerId(int followerId) {
+    public void setFollowerId(String followerId) {
         this.followerId = followerId;
     }
 
