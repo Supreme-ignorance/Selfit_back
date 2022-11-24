@@ -29,7 +29,9 @@
         SET password = #{password},
             height = #{height},
             weight = #{weight},
-            info_disclose = ${infoDisclose}
+            info_disclose = ${infoDisclose},
+            user_level = #{level},
+            user_exp = #{exp}
         WHERE id = #{id}
     </update>
 
