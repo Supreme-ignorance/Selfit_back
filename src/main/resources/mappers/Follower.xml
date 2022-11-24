@@ -8,7 +8,7 @@
         <id column="follow_index" property="followIndex" />
         <result column="user_id" property="userId" />
         <result column="follower_id" property="followerId" />
-        <result column="nickname" property="followerNickname"/>
+        <result column="nickname" property="nickname"/>
     </resultMap>
 
     <insert id="insertUser" parameterType="Follower">
@@ -31,7 +31,7 @@
 
     <select id="selectFollowingList" resultMap="FollowerMap" parameterType="String">
         SELECT f.user_id as user_id, f.follower_id as follower_id, u.nickname as nickname
-        FROM friend f left JOIN user u ON f.follower_id = u.id
+        FROM friend f left JOIN user u ON f.user_id = u.id
         WHERE f.follower_id = #{followerId}
         ORDER BY `follow_index` ASC
     </select>
