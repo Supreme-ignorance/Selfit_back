@@ -65,7 +65,6 @@ values ("gMaB-fG4u4g", "전신 다이어트 최고의 운동 [칼소폭 찐 핵�
        ("54tTYO-vU2E", "상체 다이어트 최고의 운동 BEST [팔뚝살/겨드랑이살/등살/가슴어깨라인]", "홈트", "ThankyouBUBU", 0),
        ("QqqZH3j_vH0", "상체비만 다이어트 최고의 운동 [상체 핵매운맛]", "홈트", "ThankyouBUBU", 0),
        ("tzN6ypk6Sps", "하체운동이 중요한 이유? 이것만 보고 따라하자 ! [하체운동 교과서]", "홈트", "김강민", 0),
-       ("u5OgcZdNbMo", "저는 하체 식주의자 입니다", "홈트", "GYM종국", 0),
        ("PjGcOP-TQPE", "11자복근 복부 최고의 운동 [복근 핵매운맛]", "홈트", "ThankyouBUBU", 0),
        ("7TLk7pscICk", "(Sub)누워서하는 5분 복부운동!! 효과보장! (매일 2주만 해보세요!)", "홈트", "소미핏 SomiFit", 0);
 
@@ -81,15 +80,27 @@ values ("rIegQPbe6vE", "5 분만 있으면 이 코어 운동 루틴 해보세요
        ("jj6ze_eqmYI", "Lv.3 완벽한 복근을 만들기 위한 8분 루틴! 따라만하세요! (누구나 집에서도 가능) [8mins intense Abs Workout]", "홈트", "권혁TV", 0),
        ("sVQqBDBZhmI", "복부운동 짧고 굵게! 운동효율 갑! [6 MINS ABS WORKOUT]", "홈트", "소미핏 SomiFit", 0);
 
+
 insert into video(video_id, video_title, video_type, channel_name, view_cnt)
 values ("jabkT8Wtbsk", "헬스장 가서 뭘해야될지 모를때, 헬스장운동방법 이 영상 따라하기!! (하체운동, 상체운동 다 배워보자!)", "피트니스", "셀프미", 0),
        ("AtvBXGKCqCM", "헬스장이 처음인 헬린이들을 위한 한시간 루틴 추천👀‼(헬스장 이용 꿀팁 있음)", "피트니스", "빙그레핏", 0),
-       ("tSFr-MZIB7s", "헬스초보, 눈치 보지말고 따라하세요!! 헬스기구 사용법+ 운동루틴 [체스트 프레스/랫풀다운/레그 익스텐션]", "피트니스", "핏블리 FITVELY", 0);
+       ("tSFr-MZIB7s", "헬스초보, 눈치 보지말고 따라하세요!! 헬스기구 사용법+ 운동루틴 [체스트 프레스/랫풀다운/레그 익스텐션]", "피트니스", "핏블리 FITVELY", 0),
+       ("CnLZUXQofiI", "헬스를 막 시작하신분들이나 시작하려고 하시는 분들은 일단 이 5가지 운동만 해보세요. 헬스장 운동기구 탑5 사용법", "피트니스", "요무브YoMove", 0),
+       ("Nn7AWM2jh_w", "처음 가는 헬스장, 이 영상만 틀어놓고 따라하세요. 45분 풀버전 헬린이 루틴", "피트니스", "따라하면 몸이 좋아지는 채널, 고러쉬", 0),
+       ("u8u0RzwRko0", "집’요한’ 상체 트레이닝... (ft. 영화 보이스)", "피트니스", "김종국 GYM JONG KOOK", 0),
+       ("u5OgcZdNbMo", "저는 하체 식주의자 입니다", "홈트", "GYM종국", 0);
+
+
+
 
 
 insert into video(video_id, video_title, video_type, channel_name, view_cnt)
 values ("ZVKVZqafX1E", "올인원 운동 - 부담없는 30분 전신 근력운동 루틴 (NO 층간소음 요가 워크아웃)", "요가", "에일린 mind yoga", 0),
-       ("1W9gMxLoW6Q", "[서리요가#20] 기초요가 필수동작(구ver) / 요가 입문을 위한 25분 요가플로우 / 스트레칭, 전굴, 측굴, 역자세 /새로운 버전은 링크에 !", "요가", "서리요가seoriyoga", 0);
+       ("1W9gMxLoW6Q", "[서리요가#20] 기초요가 필수동작(구ver) / 요가 입문을 위한 25분 요가플로우 / 스트레칭, 전굴, 측굴, 역자세 /새로운 버전은 링크에 !", "요가", "서리요가seoriyoga", 0),
+       ("tZEZNsuDkLY", "매일하기 좋은 15분 데일리 스트레칭 | 기초 요가 스트레칭, 전신 스트레칭", "요가", "에일린 mind yoga", 0),
+       ("umEJnBsHjqg", "저녁에 하기 좋은 20분 요가 | 자기전 스트레칭, 숙면 요가 스트레칭", "요가", "에일린 mind yoga", 0),
+       ("UR4yba7uwuU", "우리에게 꼭 필요한 기초 코어운동 | 속근육 강화, 복근운동 초보, 근력요가", "요가", "에일린 mind yoga", 0),
+       ("z4FEpAIEdmk", "전신을 골고루 다 쓰는 55분 요가 | 빈야사 요가, 전신요가 스트레칭", "요가", "에일린 mind yoga", 0);
 
 
 
@@ -97,10 +108,8 @@ insert into video(video_id, video_title, video_type, channel_name, view_cnt)
 values ("sb51gF18cYo", "필라테스 개인레슨 받고 가세요💛 전신 구석구석 자극을 느낄 수 있어요 (Whole body workout)", "필라테스", "빵느", 0),
        ("tyb35HA55vE", "필라테스 개인레슨 받고 가세요💜 코어 바로잡기 (Whole body workout)", "필라테스", "빵느", 0),
        ("pc_hXPTLirA", "하루 두 번🧘‍♀️ 꼭 해야하는 20분 전신 스트레칭 - 전신붓기 제거, 피로회복, 독소제거, 혈액순환 효과 (Whole body stretch)", "필라테스", "빵느", 0),
-       ("g6enC_9eO24", "※50분 올인원 운동※ 체중감량에 최적화된 루틴 (No 층간소음)", "필라테스", "빵느", 0);
-
-
-
+       ("g6enC_9eO24", "※50분 올인원 운동※ 체중감량에 최적화된 루틴 (No 층간소음)", "필라테스", "빵느", 0),
+       ("mJuwKvxkfX4", "하루 8분만 하세요👌🏻뻐근한 등이 놀랍도록 편해집니다 | 날개뼈사이통증, 등통증 싹 없애기", "필라테스", "자세요정 JSYJ", 0);
 
 DROP table IF EXISTS `article`;
 CREATE TABLE IF NOT EXISTS `article` (

@@ -68,12 +68,12 @@ public class User {
         this.weight = weight;
     }
 
-    public boolean isInfoDisclose() {
+    public boolean getIsInfoDisclose() {
         return infoDisclose;
     }
 
-    public void setInfoDisclose(boolean infoDisclose) {
-        infoDisclose = infoDisclose;
+    public void setIssInfoDisclose(boolean infoDisclose) {
+        this.infoDisclose = infoDisclose;
     }
 
     public void setPassword(String password) {
