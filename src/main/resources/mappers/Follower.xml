@@ -15,8 +15,8 @@
             VALUES (#{userId}, #{followerId})
     </insert>
 
-    <delete id="deleteUser" parameterType="String">
-        DELETE FROM friend WHERE user_id = #{userId}
+    <delete id="deleteUser" parameterType="Follower">
+        DELETE FROM friend WHERE user_id = #{userId} AND follower_id = #{followerId}
     </delete>
 
 

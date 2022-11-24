@@ -17,7 +17,7 @@ public interface FollowerDao {
     void insertUser(Follower follower);
 
     // 언팔로우용
-    void deleteUser(String userId);
+    void deleteUser(Follower follower);
 
 
 }

@@ -15,5 +15,5 @@ public interface FollowerService {
     void followUser(Follower follower);
 
     //언팔로우
-    void unfollowUser(String userId);
+    void unfollowUser(Follower follower);
 }

@@ -30,7 +30,7 @@ public class FollowerServiceImpl implements FollowerService {
     }
 
     @Override
-    public void unfollowUser(String userId) {
-        followerDao.deleteUser(userId);
+    public void unfollowUser(Follower follower) {
+        followerDao.deleteUser(follower);
     }
 }
