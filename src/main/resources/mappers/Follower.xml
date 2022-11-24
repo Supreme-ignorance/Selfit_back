@@ -23,16 +23,16 @@
 
 
     <select id="selectList" resultMap="FollowerMap" parameterType="String">
-        SELECT u.id as user_id, f.follower_id as follower_id, u.nickname as nickname
-        FROM friend f INNER JOIN user u ON f.follower_id = u.id
-        WHERE u.id = #{userId}
+        SELECT f.user_id as user_id, f.follower_id as follower_id, u.nickname as nickname
+        FROM friend f left join user u ON f.follower_id = u.id
+        WHERE f.user_id = #{userId}
         ORDER BY `follow_index` ASC
     </select>
 
     <select id="selectFollowingList" resultMap="FollowerMap" parameterType="String">
-        SELECT u.id as user_id, f.follower_id as follower_id, u.nickname as nickname
-        FROM friend f INNER JOIN user u ON f.user_id = u.id
-        WHERE u.follower_id = #{followerId}
+        SELECT f.user_id as user_id, f.follower_id as follower_id, u.nickname as nickname
+        FROM friend f left JOIN user u ON f.follower_id = u.id
+        WHERE f.follower_id = #{followerId}
         ORDER BY `follow_index` ASC
     </select>
 
