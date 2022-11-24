@@ -22,7 +22,6 @@ public class JwtUtil {
     }
 
     public void valid(String token) throws Exception {
-        System.out.println(token);
         Jwts.parser().setSigningKey(SALT.getBytes("UTF-8")).parseClaimsJws(token).getBody();
     }
 }
