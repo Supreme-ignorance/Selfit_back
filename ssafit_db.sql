@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `board` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
 insert into board(board_name, board_detail)
 values ("자유게시판", "자유롭게 소통하세요~"),
-       ("자랑게시판", "적당히 자랑하세요"),
+       ("자랑게시판", "본인의 과정과 성과를 자랑하세요"),
        ("함께 운동해요", "함께 운동할 사람을 구하는 게시판");
 
 
